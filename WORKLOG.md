@@ -1,0 +1,102 @@
+# 咱的台語 (Lán ê Tâi-gí) - 今日工作工作紀錄 (Work Log)
+
+**記錄日期**：2026 年 09 月 26 日  
+**專案名稱**：咱的台語 (Lán ê Tâi-gí) - 100% 離線臺灣台語教學與教育部辭典 PWA  
+**專案版本**：`v1.0.0 (Build 2026.09)`  
+**GitHub 專案**：[JoyYoungAI/lan-taigi](https://github.com/JoyYoungAI/lan-taigi)  
+**線上展示**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)  
+
+---
+
+## 🎯 任務目標與需求
+
+1. 深入研究教育部《臺灣台語常用詞辭典》相關資源頁面（`https://sutian.moe.edu.tw/zh-hant/siongkuantsuguan/`）。
+2. 設計並打造一款支援 100% 離線運行的現代化臺灣台語教學與全功能辭典應用程式（PWA）。
+3. 研究並落實開源軟體、教育部開放資料授權條款與版本號碼的最佳醒目放置策略。
+4. 建立 GitHub 公開儲存庫，推送完整程式碼，並啟用 GitHub Pages 提供線上體驗。
+
+---
+
+## 📋 今日具體完成工作事項
+
+### 一、官方開放資料研究與資料萃取轉換
+* **辭典資料庫解構 (`kautian.ods`, 4.47 MB)**：
+  - 成功解析 ODS 壓縮檔內部 19 個工作表，完成全辭典資料結構化抽取。
+  - 產出輕量化即時搜尋索引 [`data/dict_index.json`](data/dict_index.json)（29,592 詞目，體積僅 2.8 MB，支援 <10ms 極速搜尋）。
+  - 產出完整明細庫 [`data/dict_details.json`](data/dict_details.json)（收錄 23,298 條釋義、17,907 條例句、方言讀音與異用字）。
+* **華台詞彙對照萃取**：產出 [`data/mandarin_comparison.json`](data/mandarin_comparison.json)（12,271 筆華台地道轉換對照）。
+* **方言語音腔調比較**：產出 [`data/dialects.json`](data/dialects.json)（407 筆涵蓋鹿港、三峽、臺北、宜蘭、臺南、高雄、金門、新竹、臺中等 10 腔對比）。
+* **百家姓台語發音**：產出 [`data/surnames.json`](data/surnames.json)（2,473 筆台灣常見姓氏讀音）。
+* **「臺灣閩南語按呢寫」專欄萃取**：解析 `annesia.zip` 中的 `annesia.ods`，產出 [`data/annesia_data.json`](data/annesia_data.json)（458 期教育部正字源流解析）。
+* **核心高頻真人口音下載**：從教育部伺服器萃取並隨附 100 筆核心生活教學詞彙 MP3（存於 [`audio/`](audio/)，約 1.3 MB），開箱即享 100% 離線真實發音。
+
+---
+
+### 二、前端核心架構與 PWA 離線機制實作
+* **PWA Service Worker (`sw.js`)**：
+  - 實作完整 Precache 清單，離線快取 App Shell、所有 JSON 資料集與 100 首隨附音檔。
+  - 實作音訊串流智慧快取策略：在線收聽任何辭典發音時，自動寫入本地 `lan-taigi-audio-v1` 快取，往後斷網永久可用。
+* **PWA Web App Manifest (`manifest.webmanifest`)**：
+  - 設定獨立 App 視窗模式（Standalone）、多尺寸圖示（192x192, 512x512, SVG）與主題色。
+* **純前端 ZIP 離線語音包匯入器 (`js/audio-manager.js`, `js/jszip.min.js`)**：
+  - 整合 JSZip，使用者可直接拖曳官方 `sutiau-mp3.zip`（300MB）至設定頁面。
+  - 純前端分批串流解壓縮寫入瀏覽器 IndexedDB，達成全辭典 2.2 萬條真人發音全離線。
+* **IndexedDB 本地持久化儲存 (`js/storage.js`)**：
+  - 封裝生詞收藏庫（Bookmarks）、歷史瀏覽記錄、測驗錯題複習本與音檔 Blob 倉庫。
+
+---
+
+### 三、八大功能模組完整開發
+
+1. **🎓 系統性主題情境教學課程 (`js/lessons.js`)**：
+   - 規劃 10 大情境單元（見面問候、數字金錢、夜市美食、家族稱謂、人體情緒、生活動詞、交通問路、職場打拚、四季節令、經典俗諺）。
+   - 每單元提供情境對話（含真人台語音讀）、核心單詞卡、3D 翻翻卡（Flashcard）即時複習、語言文化小撇步。
+2. **📖 全功能離線辭典引擎 (`js/dict.js`)**：
+   - 29,592 條詞目全文檢索，支援漢字、臺羅拼音（模糊調號搜尋）、華語釋義與分類晶片篩選。
+   - 點擊卡片彈出完整釋義、例句與腔調視窗。
+3. **🎵 臺羅聲韻調學院 (`js/phonology.js`, `js/tone-synth.js`)**：
+   - 17 聲母、韻母系統化教學。
+   - 運用 Web Audio API OscillatorNode 物理合成八聲七調（55, 51, 31, 21, 24, 33, 53）連續滑音。
+   - 互動式調值曲線座標圖與連讀變調口訣計算機（5➔7➔3➔2➔1➔7 與 4➔8 / 8➔4）。
+4. **🎯 台語趣味互動測驗競技場 (`js/quiz.js`)**：
+   - 4 種模式（看字選台羅、看拼音選字、華台對照測驗、聲調大挑戰）。
+   - 具備連勝紀錄、Web Audio 答對/答錯物理音效、自動收入錯題本。
+5. **✍️ 教育部「按呢寫」專欄專區 (`js/annesia.js`)**：
+   - 458 篇教育部正字源流解析專區，釐清本字正寫（毋通、歹勢、食飽未、拍拚、工課等）。
+6. **🔍 華台詞彙對照庫**：12,271 筆華語快速查詢在地台語地道講法。
+7. **🗣️ 方言語音與 🏷️ 百家姓速查**：十大腔調橫向對比；2,473 姓氏台羅標注。
+8. **⭐ 生詞本與離線設定**：離線儲存空間監控、深色/淺色主題切換、字體大小調節。
+
+---
+
+### 四、授權條款與版本號碼合規落實
+
+依據開源與政府開放資料雙軌規範，落實 **5 大最醒目放置位置**：
+1. **頂部 Header**：Logo 旁常駐版本號 `v1.0.0` 與 `📜 CC BY-ND 3.0 / MIT` 徽章，右側設有【📜 授權與版本】快捷按鈕。
+2. **全域互動彈窗 (`#license-modal`)**：清晰條列軟體版本 (v1.0.0)、資料庫版本 (2026-09-24)、詞典規模、教育部 CC BY-ND 3.0 TW 條款、按呢寫 CC BY-NC-ND 2.5 TW 條款與 MIT License。
+3. **「離線設定」分頁**：設置「專案版本與授權條款聲明」獨立專屬卡片。
+4. **全站頁尾 Footer**：所有頁面底部標註 `v1.0.0 © 2026` 與完整版權聲明連結。
+5. **標準開源檔案規範**：建立專案根目錄 [`LICENSE`](LICENSE)、[`package.json`](package.json)、[`manifest.webmanifest`](manifest.webmanifest)，並於 [`README.md`](README.md) 頂部配置動態 Shield 徽章與專屬授權章節。
+
+---
+
+### 五、GitHub 開源發布與雲端部署
+* 初始化 Git 儲存庫並完成初版 Commit（131 個檔案，2.7 萬行程式碼）。
+* 使用 GitHub CLI (`gh`) 於 `JoyYoungAI` 帳號下建立公開儲存庫：`JoyYoungAI/lan-taigi`。
+* 成功將原始碼推送至 GitHub `main` 分支。
+* 透過 GitHub API 自動啟用 **GitHub Pages**，提供全球 CDN 加速線上展示與 PWA 手機/電腦安裝服務。
+
+---
+
+## 📊 專案技術指標摘要
+
+| 指標項目 | 數據與技術規格 |
+| :--- | :--- |
+| **詞條收錄總數** | 29,592 條詞目 / 23,298 條釋義 / 17,907 條例句 |
+| **檢索響應時間** | 記憶體索引查詢平均 < 10 毫秒 (純前端無延遲) |
+| **隨附真人音檔** | 100 筆生活必備詞彙 MP3 (1.3 MB) |
+| **支援方言腔調** | 10 大腔調 (鹿港、三峽、臺北、宜蘭、臺南、高雄、金門、新竹、臺中等) |
+| **前端運行依賴** | 零後端伺服器依賴 (純靜態 HTML5 + 原生 CSS + Vanilla JS + Web Audio + IndexedDB) |
+| **離線支援能力** | 100% 離線可用 (Service Worker CacheStorage 全快取) |
+| **程式碼授權** | MIT License |
+| **詞典資料授權** | 創用 CC 姓名標示-禁止改作 3.0 臺灣 (CC BY-ND 3.0 TW) |
