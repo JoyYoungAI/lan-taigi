@@ -1,0 +1,61 @@
+咱的台語 (Lán ê Tâi-gí) - 專案授權條款聲明
+=====================================================
+
+本專案由應用程式原始碼、教育部開放資料辭典內容兩大部分組成，各自適用相應之授權條款：
+
+一、應用程式原始碼 (Application Source Code)
+---------------------------------------------
+本應用程式之程式碼（HTML、CSS、JavaScript、Service Worker 及建置腳本）採用 MIT License 授權：
+
+MIT License
+
+Copyright (c) 2026 咱的台語開發團隊 (Lán ê Tâi-gí Development Team)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+二、教育部《臺灣台語常用詞辭典》開放資料 (Dictionary Content & Audio)
+----------------------------------------------------------------------
+1. 辭典文字、例句、方言語音與官方詞條音檔之著作權均屬中華民國教育部所有。
+2. 授權條款：
+   - 本辭典之文字、音檔內容以「創用CC 姓名標示-禁止改作 3.0 臺灣 (CC BY-ND 3.0 TW)」授權條款釋出。
+   - 授權條款詳情：https://creativecommons.org/licenses/by-nd/3.0/tw/
+   - 政府資料開放授權條款：https://data.gov.tw/license
+3. 官方資料出處：
+   - 網站名稱：教育部臺灣台語常用詞辭典
+   - 網址：https://sutian.moe.edu.tw/
+   - 相關資源：https://sutian.moe.edu.tw/zh-hant/siongkuantsuguan/
+   - 版權歷程：
+     * 中華民國97年10月 臺灣學術網路試用版
+     * 中華民國100年7月 臺灣學術網路正式版
+     * 中華民國112年6月 臺灣學術網路第二版（現已於113年8月依「國家語言整體發展方案」書面用語規範更名為《臺灣台語常用詞辭典》）
+
+
+三、「臺灣閩南語按呢寫」專欄電子檔 (Án-ne Siá Articles)
+------------------------------------------------------
+1. 教育部電子報「臺灣閩南語按呢寫」專欄內容著作權屬原作者與教育部所有。
+2. 授權條款：
+   - 本專欄採用「創用CC 姓名標示-非商業性-禁止改作 2.5 臺灣版 (CC BY-NC-ND 2.5 TW)」授權條款釋出。
+   - 授權條款詳情：https://creativecommons.org/licenses/by-nc-nd/2.5/tw/
+
+
+四、字型與第三方開源元件 (Fonts & Third-Party Components)
+--------------------------------------------------------
+1. Noto Sans TC：SIL Open Font License 1.1
+2. JSZip (v3.10.1)：MIT License (Copyright (c) 2009-2022 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso)

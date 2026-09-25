@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light" data-font-size="md">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>咱的台語 - 離線台語教學與教育部辭典 (Lán ê Tâi-gí)</title>
+  
+  <meta name="description" content="100% 支援離線運行的臺灣台語教學與教育部臺灣台語常用詞辭典開放資料 PWA 應用程式。收錄 29,592 詞條、情境會話教學、臺羅拼音、聲調合成發音與互動測驗。">
+  <meta name="theme-color" content="#1b5e20">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="咱的台語">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-box" onclick="window.app.switchNav('lessons')">
+        <img src="icons/icon.svg" alt="咱的台語 Logo" class="brand-icon">
+        <div class="brand-titles">
+          <h1 class="brand-title">
+            咱的台語 
+            <span class="version-badge" onclick="window.app.showLicenseModal()" title="點擊查看專案版本歷程">v1.0.0</span>
+            <span class="license-badge" onclick="window.app.showLicenseModal()" title="點擊查看教育部開放授權條款">📜 CC BY-ND 3.0 / MIT</span>
+            <span id="offline-status-badge" class="status-badge online"><span class="dot"></span><span>100% 離線可用</span></span>
+          </h1>
+          <span class="brand-sub">教育部臺灣台語辭典開放資料離線學習系統 (資料版本：2026-09 最新修訂版)</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button class="btn btn-outline btn-sm" onclick="window.app.showLicenseModal()" title="查看專案授權條款與版本資訊">
+          📜 授權與版本
+        </button>
+
+        <button id="pwa-install-btn" class="btn btn-outline btn-sm" style="display:none;" title="安裝到手機/桌面">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          安裝 App
+        </button>
+
+        <button id="font-scale-btn" class="icon-btn" title="切換字體大小">
+          <span id="font-scale-label" style="font-size:0.75rem; font-weight:700;">標準</span>
+        </button>
+
+        <button id="theme-toggle-btn" class="icon-btn" title="切換深色/淺色主題">
+          <span id="theme-toggle-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="app-nav-bar">
+    <div class="nav-tabs-container">
+      <button class="nav-tab-btn active" data-tab="lessons">🎓 主題教學</button>
+      <button class="nav-tab-btn" data-tab="dict">📖 全辭典 (2.9萬)</button>
+      <button class="nav-tab-btn" data-tab="phonology">🎵 聲韻調學院</button>
+      <button class="nav-tab-btn" data-tab="quiz">🎯 互動測驗</button>
+      <button class="nav-tab-btn" data-tab="annesia">✍️ 按呢寫專欄</button>
+      <button class="nav-tab-btn" data-tab="mandarin">🔍 華台對照</button>
+      <button class="nav-tab-btn" data-tab="dialects">🗣️ 方言語音</button>
+      <button class="nav-tab-btn" data-tab="surnames">🏷️ 百家姓</button>
+      <button class="nav-tab-btn" data-tab="bookmarks">⭐ 生詞本</button>
+      <button class="nav-tab-btn" data-tab="settings">⚙️ 離線設定</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="app-main">
+
+    <!-- Section 1: Lessons -->
+    <section id="section-lessons" class="app-section active">
+      <div id="lesson-list-section">
+        <div class="section-header">
+          <h2>🎓 系統性主題情境教學課程</h2>
+          <p>共 10 大情境單元，結合真實生活對話、實用核心單詞、字詞例句與在地文化小撇步。</p>
+        </div>
+        <div id="lesson-list-container"></div>
+      </div>
+
+      <div id="lesson-detail-section" style="display:none;">
+        <div id="lesson-detail-content"></div>
+      </div>
+    </section>
+
+    <!-- Section 2: Full Dictionary -->
+    <section id="section-dict" class="app-section">
+      <div class="section-header">
+        <h2>📖 教育部臺灣台語全辭典 (全文離線檢索)</h2>
+        <p>收錄 29,592 條完整詞目、2.3 萬釋義、1.7 萬例句與音檔，支援漢字、臺羅拼音與華語關鍵字搜尋（按 <kbd>/</kbd> 鍵快速搜尋）。</p>
+      </div>
+
+      <div class="dict-search-bar-wrap">
+        <div class="search-input-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="dict-search-input" class="search-input" placeholder="輸入漢字 (如: 滷肉飯)、臺羅拼音 (如: bah-uan, tai-gi) 或華語釋義..." oninput="window.dictManager.search(this.value)">
+        </div>
+      </div>
+
+      <div id="category-filter-chips" class="filter-chips-scroll"></div>
+
+      <div class="dict-meta-bar">
+        <span id="dict-results-count">載入辭典中...</span>
+        <span>💡 點擊詞條卡片可查看完整釋義、例句與腔調</span>
+      </div>
+
+      <div id="dict-results-list" class="dict-results-grid"></div>
+    </section>
+
+    <!-- Section 3: Phonology -->
+    <section id="section-phonology" class="app-section">
+      <div class="section-header">
+        <h2>🎵 臺羅聲韻調學院 (羅馬字與聲調系統)</h2>
+        <p>教育部臺灣台語羅馬字拼音方案完整教學：17 聲母、韻母、八聲七調圖解與 Web Audio 互動聲調合成器。</p>
+      </div>
+
+      <!-- Tone Contour Visualizer -->
+      <div class="tone-chart-wrap">
+        <h3 style="margin-bottom:0.5rem; color:var(--primary);">🎼 互動式八聲七調調值曲線圖 (點擊曲線聆聽滑音)</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">台語為典型聲調語言，調值由 1(低) 至 5(高)。點擊下方座標圖曲線或聲調卡片，即可由音訊合成器發出物理音高頻率：</p>
+        <div id="tone-chart-box"></div>
+      </div>
+
+      <div id="tone-cards-box" style="margin-bottom:2rem;"></div>
+
+      <!-- Tone Sandhi Masterclass -->
+      <div class="section-header" style="margin-top:2rem;">
+        <h2>🔄 本調與連讀變調規則 (Tone Sandhi)</h2>
+        <p>掌握台語「前字變調，末字本調」的神奇口訣：<strong>5 ➔ 7 ➔ 3 ➔ 2 ➔ 1 ➔ 7</strong>！</p>
+      </div>
+      <div id="sandhi-rules-container" style="margin-bottom:2rem;"></div>
+
+      <!-- 17 Initials -->
+      <div class="section-header" style="margin-top:2rem;">
+        <h2>🔤 17 聲母表 (輔音聲母)</h2>
+        <p>台語特色清濁對立（b、g 濁音）與送氣不送氣區別：</p>
+      </div>
+      <div id="initials-table-container" style="margin-bottom:2rem;"></div>
+
+      <!-- Vowels & Finals -->
+      <div class="section-header" style="margin-top:2rem;">
+        <h2>🔡 韻母表 (單元音與鼻化、入聲韻)</h2>
+      </div>
+      <div id="vowels-table-container"></div>
+    </section>
+
+    <!-- Section 4: Quiz Arena -->
+    <section id="section-quiz" class="app-section">
+      <div class="section-header">
+        <h2>🎯 台語趣味互動測驗競技場</h2>
+        <p>透過多種遊戲化練習，鞏固拼音辨識、漢字認讀、華台轉換與聲調敏感度。</p>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="dict-meta-bar" style="background:var(--bg-card); padding:0.75rem 1rem; border-radius:var(--radius-md); border:1px solid var(--border-color); margin-bottom:1.25rem;">
+        <span>得分：<strong id="quiz-stat-score" style="color:var(--primary); font-size:1.1rem;">0</strong> 分</span>
+        <span>連勝：<strong id="quiz-stat-streak" style="color:var(--secondary); font-size:1.1rem;">0</strong> 題</span>
+        <span>總答題數：<strong id="quiz-stat-total">0</strong> 題</span>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="quiz-modes-bar">
+        <button class="quiz-mode-btn active" onclick="window.quizManager.setMode('hanzi_to_tailo', this)">看字選台羅</button>
+        <button class="quiz-mode-btn" onclick="window.quizManager.setMode('tailo_to_hanzi', this)">看拼音選字</button>
+        <button class="quiz-mode-btn" onclick="window.quizManager.setMode('mandarin_to_taiwanese', this)">華台對照測驗</button>
+        <button class="quiz-mode-btn" onclick="window.quizManager.setMode('tone_quiz', this)">聲調大挑戰</button>
+      </div>
+
+      <div id="quiz-card-container"></div>
+    </section>
+
+    <!-- Section 5: Annesia (按呢寫) -->
+    <section id="section-annesia" class="app-section">
+      <div class="section-header">
+        <h2>✍️ 教育部「臺灣閩南語按呢寫」專欄精選</h2>
+        <p>收錄教育部電子報 458 篇用字解析專欄，釐清台語正確漢字本字源流，拒絕諧音借字與火星文！</p>
+      </div>
+
+      <div class="dict-search-bar-wrap">
+        <div class="search-input-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+          <input type="text" class="search-input" placeholder="搜尋按呢寫詞目 (如: 頭路, 枵, 囡仔, 按呢, 𪜶)..." oninput="window.annesiaManager.search(this.value)">
+        </div>
+      </div>
+
+      <div class="dict-meta-bar">
+        <span id="annesia-count">載入按呢寫專欄清單中...</span>
+      </div>
+
+      <div id="annesia-list"></div>
+    </section>
+
+    <!-- Section 6: Mandarin Comparison -->
+    <section id="section-mandarin" class="app-section">
+      <div class="section-header">
+        <h2>🔍 華台詞彙比較對照表 (12,271 筆)</h2>
+        <p>教育部辭典官方華台對照資料，查詢華語詞在台語各腔調中的地道說法：</p>
+      </div>
+
+      <div class="dict-search-bar-wrap">
+        <div class="search-input-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+          <input type="text" class="search-input" placeholder="輸入華語詞彙 (如: 玉米, 腳踏車, 醫生, 醫院, 下雨)..." oninput="window.dictManager.renderMandarinComparison(this.value)">
+        </div>
+      </div>
+
+      <div id="mandarin-comp-list"></div>
+    </section>
+
+    <!-- Section 7: Dialects -->
+    <section id="section-dialects" class="app-section">
+      <div class="section-header">
+        <h2>🗣️ 台灣十大方言腔調語音差異對比</h2>
+        <p>跨地域腔調比較：鹿港偏泉、三峽偏泉、臺北偏泉、宜蘭偏漳、臺南混合、高雄混合、金門偏泉、馬公偏泉、新竹偏泉、臺中偏漳。</p>
+      </div>
+
+      <div id="dialects-table-container"></div>
+    </section>
+
+    <!-- Section 8: Surnames -->
+    <section id="section-surnames" class="app-section">
+      <div class="section-header">
+        <h2>🏷️ 百家姓台語發音速查 (2,473 姓氏)</h2>
+        <p>查詢台灣常見姓氏的正確台語讀音與羅馬字標注：</p>
+      </div>
+
+      <div class="dict-search-bar-wrap">
+        <div class="search-input-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+          <input type="text" class="search-input" placeholder="搜尋姓氏 (如: 陳, 林, 黃, 張, 李, 王, 吳, 劉)..." oninput="window.dictManager.renderSurnames(this.value)">
+        </div>
+      </div>
+
+      <div id="surnames-list"></div>
+    </section>
+
+    <!-- Section 9: Bookmarks -->
+    <section id="section-bookmarks" class="app-section">
+      <div class="section-header">
+        <h2>⭐ 我的生詞本與收藏庫</h2>
+        <p>在課程或辭典中點選星星收藏的生詞，儲存在本地瀏覽器 IndexedDB 中，離線永久保留。</p>
+      </div>
+
+      <div id="bookmarks-list-container"></div>
+    </section>
+
+    <!-- Section 10: Settings & Offline Pack -->
+    <section id="section-settings" class="app-section">
+      <div class="section-header">
+        <h2>⚙️ 離線狀態與語音包管理</h2>
+        <p>管理本地離線儲存空間，支援一鍵匯入教育部官方語音壓縮包，達成全辭典 100% 離線真人原音！</p>
+      </div>
+
+      <div class="culture-card" style="margin-bottom:1.5rem;">
+        <h3 style="color:var(--primary); margin-bottom:0.5rem;">📦 本地儲存與語音狀態</h3>
+        <p id="offline-audio-count" style="font-weight:700; margin-bottom:0.75rem;">正在檢查離線音檔...</p>
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+          本應用程式內建包含 <strong>100 首核心教學高頻詞真人口音</strong> 與 <strong>Web Audio 調值聲學物理合成器</strong>。
+          連網時收聽的任何官方音檔皆會被 Service Worker 自動永久快取於本地。
+        </p>
+      </div>
+
+      <!-- Offline Zip Importer -->
+      <div class="culture-card">
+        <h3 style="color:var(--primary); margin-bottom:0.5rem;">📥 匯入教育部官方語音包 (sutiau-mp3.zip)</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+          若您希望在完全沒有網路時也能聆聽全辭典 <strong>2.2 萬條詞目發音</strong>，可至教育部辭典官方下載 
+          <a href="https://sutian.moe.edu.tw/media/senn/sutiau-mp3.zip" target="_blank" style="color:var(--primary); font-weight:700;">sutiau-mp3.zip (約 300MB)</a>，並在此處匯入：
+        </p>
+
+        <label class="zip-dropzone" for="zip-file-input">
+          <div class="dropzone-icon">📁</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--primary);">點擊或拖曳 sutiau-mp3.zip 至此</div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">純前端 IndexedDB 串流解壓儲存，資料完全保留在您的本機電腦或手機中</p>
+          <input type="file" id="zip-file-input" accept=".zip" style="display:none;" onchange="window.app.handleZipImport(this)">
+        </label>
+
+        <div id="zip-import-progress-box" style="display:none;">
+          <div class="progress-container">
+            <div id="zip-import-progress-bar" class="progress-bar"></div>
+          </div>
+          <p id="zip-import-progress-text" style="font-size:0.85rem; text-align:center; font-weight:600; color:var(--primary);">正在準備解壓縮...</p>
+        </div>
+      </div>
+
+      <!-- Dedicated Version & Licensing Card in Settings -->
+      <div class="culture-card" style="margin-top:1.5rem; border-left: 4px solid var(--primary);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+          <h3 style="color:var(--primary); margin:0;">📜 專案版本與授權條款聲明</h3>
+          <div style="display:flex; gap:0.4rem;">
+            <span class="version-badge">版本 v1.0.0</span>
+            <span class="license-badge">CC BY-ND 3.0 / MIT</span>
+          </div>
+        </div>
+        <p style="font-size:0.9rem; line-height:1.6; margin-bottom:0.75rem;">
+          本專案以推廣台灣母語數位學習與文化傳承為宗旨，所有資料庫、文字、音訊與原始碼嚴格遵守相應之法律授權條款規範：
+        </p>
+        <div class="license-tag-list">
+          <span class="badge" style="background:var(--primary-bg); color:var(--primary); font-weight:700;">文字與音檔：CC BY-ND 3.0 臺灣</span>
+          <span class="badge" style="background:var(--secondary-bg); color:var(--secondary); font-weight:700;">按呢寫專欄：CC BY-NC-ND 2.5 臺灣</span>
+          <span class="badge" style="background:var(--bg-subtle); color:var(--text-main); font-weight:700;">軟體原始碼：MIT License</span>
+          <span class="badge" style="background:var(--bg-subtle); color:var(--text-main); font-weight:700;">辭典發布版本：2026-09-24</span>
+        </div>
+        <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm" onclick="window.app.showLicenseModal()">
+            📖 檢視完整授權條款與版權歷程
+          </button>
+          <a href="https://sutian.moe.edu.tw/" target="_blank" class="btn btn-outline btn-sm">
+            🌐 前往教育部臺灣台語常用詞辭典官方網站
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Word Details Modal -->
+  <div id="word-modal" class="modal-overlay" onclick="if(event.target===this) window.dictManager.closeModal()">
+    <div class="modal-card">
+      <button class="icon-btn modal-close-btn" onclick="window.dictManager.closeModal()" title="關閉視窗">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <div id="word-modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- License & Version Modal -->
+  <div id="license-modal" class="modal-overlay" onclick="if(event.target===this) window.app.closeLicenseModal()">
+    <div class="modal-card license-modal-card">
+      <button class="icon-btn modal-close-btn" onclick="window.app.closeLicenseModal()" title="關閉視窗">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.75rem;">
+          <img src="icons/icon.svg" width="40" height="40" alt="Logo">
+          <div>
+            <h3 style="color:var(--primary); margin:0;">專案授權條款與版本資訊</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin:0;">Lán ê Tâi-gí Licensing Terms & Release Information</p>
+          </div>
+        </div>
+
+        <div class="license-box">
+          <h4>🚀 軟體與資料庫版本資訊</h4>
+          <p>
+            • <strong>應用程式版本 (App Version)：</strong>v1.0.0 (Build 2026.09)<br>
+            • <strong>辭典資料版本 (Dictionary Data Version)：</strong>教育部臺灣台語常用詞辭典 2026-09-24 最新發布版<br>
+            • <strong>資料規模：</strong>完整收錄 29,592 條詞目、23,298 條釋義、17,907 條例句、12,271 筆華台對照、407 筆方言讀音、2,473 筆百家姓
+          </p>
+        </div>
+
+        <div class="license-box">
+          <h4>🏛️ 教育部《臺灣台語常用詞辭典》開放資料授權</h4>
+          <p>
+            本網站收錄之詞目、釋義、例句文字與官方音檔內容，其著作權屬中華民國教育部所有，並依據教育部正式公告之
+            <strong>「創用CC 姓名標示-禁止改作 3.0 臺灣 (CC BY-ND 3.0 TW)」</strong> 及 <strong>「政府資料開放授權條款」</strong> 釋出。<br>
+            • 條款規範：任何人均得自由重製、散布、傳輸本著作，惟須標示原作者姓名並禁止改作。<br>
+            • 官方來源：<a href="https://sutian.moe.edu.tw/" target="_blank" style="color:var(--primary); text-decoration:underline;">教育部臺灣台語常用詞辭典官方網站</a>
+          </p>
+        </div>
+
+        <div class="license-box">
+          <h4>✍️ 教育部電子報「臺灣閩南語按呢寫」專欄授權</h4>
+          <p>
+            本專欄內容（458 期用字解析清單）採用 <strong>「創用CC 姓名標示-非商業性-禁止改作 2.5 臺灣版 (CC BY-NC-ND 2.5 TW)」</strong> 授權條款釋出。
+          </p>
+        </div>
+
+        <div class="license-box">
+          <h4>💻 前端應用程式原始碼授權 (MIT License)</h4>
+          <p>
+            本應用程式之程式碼（HTML、CSS、JavaScript、Service Worker 離線快取引擎與建置腳本）採用 <strong>MIT License</strong> 開源釋出。<br>
+            Copyright &copy; 2026 咱的台語開發團隊 (Lán ê Tâi-gí Development Team).
+          </p>
+        </div>
+
+        <div class="license-box">
+          <h4>🔤 開源字型與第三方組件</h4>
+          <p>
+            • 思源黑體 (Noto Sans TC)：SIL Open Font License 1.1<br>
+            • JSZip (v3.10.1)：MIT License (用於純前端解壓縮本地音檔包)
+          </p>
+        </div>
+
+        <div style="text-align:center; margin-top:1.25rem;">
+          <button class="btn btn-primary" onclick="window.app.closeLicenseModal()">我已瞭解並同意遵守相關授權規範</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="#lessons" onclick="window.app.switchNav('lessons')">主題教學</a>
+        <a href="#dict" onclick="window.app.switchNav('dict')">全功能辭典</a>
+        <a href="#phonology" onclick="window.app.switchNav('phonology')">聲韻調學院</a>
+        <a href="#quiz" onclick="window.app.switchNav('quiz')">互動測驗</a>
+        <a href="#annesia" onclick="window.app.switchNav('annesia')">按呢寫專欄</a>
+        <a href="#settings" onclick="window.app.switchNav('settings')">離線設定</a>
+        <a href="javascript:void(0)" onclick="window.app.showLicenseModal()" style="font-weight:700;">📜 授權與版本</a>
+      </div>
+      <p style="margin-top:0.5rem; line-height:1.6;">
+        「咱的台語」離線教學應用程式 (Lán ê Tâi-gí) <strong>v1.0.0</strong> &copy; 2026<br>
+        辭典資料依據教育部「臺灣台語常用詞辭典」(CC BY-ND 3.0 TW) 釋出 | 軟體原始碼採 MIT License 釋出<br>
+        <a href="javascript:void(0)" onclick="window.app.showLicenseModal()" style="color:var(--primary); font-weight:700; text-decoration:underline;">檢視完整授權條款與版權聲明</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/jszip.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/tone-synth.js"></script>
+  <script src="js/audio-manager.js"></script>
+  <script src="js/phonology.js"></script>
+  <script src="js/lessons.js"></script>
+  <script src="js/dict.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/annesia.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

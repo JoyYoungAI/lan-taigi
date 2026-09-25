@@ -1,0 +1,22 @@
+{
+  "name": "lan-taigi",
+  "version": "1.0.0",
+  "description": "咱的台語 - 100% 離線臺灣台語教學與教育部辭典 PWA 應用程式",
+  "license": "MIT",
+  "data_license": "CC BY-ND 3.0 TW",
+  "annesia_license": "CC BY-NC-ND 2.5 TW",
+  "author": "Lán ê Tâi-gí Development Team",
+  "homepage": "https://sutian.moe.edu.tw/",
+  "scripts": {
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "taiwanese",
+    "taigi",
+    "hokkien",
+    "dictionary",
+    "pwa",
+    "offline-first",
+    "education"
+  ]
+}
