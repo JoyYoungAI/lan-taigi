@@ -10,6 +10,9 @@
 
 > 基於中華民國教育部「[臺灣台語常用詞辭典](https://sutian.moe.edu.tw/)」開放資料（相關資源專區）精心研發的現代化全功能台語學習系統與離線辭典。
 
+**🌐 線上體驗與直接安裝 (Live Demo)**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)
+
+
 ---
 
 ## 🌟 核心特色與架構
