@@ -247,36 +247,52 @@ class StorageManager {
 
   // --- SM-2 SRS Repetition Storage ---
   async saveSRSItem(item) {
-    const db = await this.ensureDB();
-    return new Promise((resolve, reject) => {
-      const tx = db.transaction('srs_items', 'readwrite');
-      const store = tx.objectStore('srs_items');
-      store.put(item);
-      tx.oncomplete = () => resolve(item);
-      tx.onerror = () => reject(tx.error);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('srs_items')) return item;
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('srs_items', 'readwrite');
+        const store = tx.objectStore('srs_items');
+        store.put(item);
+        tx.oncomplete = () => resolve(item);
+        tx.onerror = () => resolve(item);
+      });
+    } catch (e) {
+      console.warn('[Storage] saveSRSItem fallback:', e);
+      return item;
+    }
   }
 
   async getSRSItem(id) {
-    const db = await this.ensureDB();
-    return new Promise((resolve) => {
-      const tx = db.transaction('srs_items', 'readonly');
-      const store = tx.objectStore('srs_items');
-      const req = store.get(String(id));
-      req.onsuccess = () => resolve(req.result || null);
-      req.onerror = () => resolve(null);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('srs_items')) return null;
+      return new Promise((resolve) => {
+        const tx = db.transaction('srs_items', 'readonly');
+        const store = tx.objectStore('srs_items');
+        const req = store.get(String(id));
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) {
+      return null;
+    }
   }
 
   async getAllSRSItems() {
-    const db = await this.ensureDB();
-    return new Promise((resolve) => {
-      const tx = db.transaction('srs_items', 'readonly');
-      const store = tx.objectStore('srs_items');
-      const req = store.getAll();
-      req.onsuccess = () => resolve(req.result || []);
-      req.onerror = () => resolve([]);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('srs_items')) return [];
+      return new Promise((resolve) => {
+        const tx = db.transaction('srs_items', 'readonly');
+        const store = tx.objectStore('srs_items');
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => resolve([]);
+      });
+    } catch (e) {
+      return [];
+    }
   }
 
   async getDueSRSItems() {
@@ -287,77 +303,96 @@ class StorageManager {
 
   // --- Level Map Progress Storage ---
   async saveLevelProgress(levelKey, data) {
-    const db = await this.ensureDB();
-    return new Promise((resolve, reject) => {
-      const tx = db.transaction('level_progress', 'readwrite');
-      const store = tx.objectStore('level_progress');
-      const record = { levelKey, ...data, updatedAt: Date.now() };
-      store.put(record);
-      tx.oncomplete = () => resolve(record);
-      tx.onerror = () => reject(tx.error);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('level_progress')) return data;
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('level_progress', 'readwrite');
+        const store = tx.objectStore('level_progress');
+        const record = { levelKey, ...data, updatedAt: Date.now() };
+        store.put(record);
+        tx.oncomplete = () => resolve(record);
+        tx.onerror = () => resolve(record);
+      });
+    } catch (e) {
+      console.warn('[Storage] saveLevelProgress fallback:', e);
+      return data;
+    }
   }
 
   async getLevelProgress(levelKey) {
-    const db = await this.ensureDB();
-    return new Promise((resolve) => {
-      const tx = db.transaction('level_progress', 'readonly');
-      const store = tx.objectStore('level_progress');
-      const req = store.get(levelKey);
-      req.onsuccess = () => resolve(req.result || null);
-      req.onerror = () => resolve(null);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('level_progress')) return null;
+      return new Promise((resolve) => {
+        const tx = db.transaction('level_progress', 'readonly');
+        const store = tx.objectStore('level_progress');
+        const req = store.get(levelKey);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) {
+      return null;
+    }
   }
 
   async getAllLevelProgress() {
-    const db = await this.ensureDB();
-    return new Promise((resolve) => {
-      const tx = db.transaction('level_progress', 'readonly');
-      const store = tx.objectStore('level_progress');
-      const req = store.getAll();
-      req.onsuccess = () => resolve(req.result || []);
-      req.onerror = () => resolve([]);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('level_progress')) return [];
+      return new Promise((resolve) => {
+        const tx = db.transaction('level_progress', 'readonly');
+        const store = tx.objectStore('level_progress');
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result || []);
+        req.onerror = () => resolve([]);
+      });
+    } catch (e) {
+      console.warn('[Storage] getAllLevelProgress fallback:', e);
+      return [];
+    }
   }
 
   // --- User Profile (Streak, Stars, Exp) ---
   async getUserProfile() {
-    const db = await this.ensureDB();
-    return new Promise((resolve) => {
-      const tx = db.transaction('user_profile', 'readonly');
-      const store = tx.objectStore('user_profile');
-      const req = store.get('main_profile');
-      req.onsuccess = () => {
-        const defaultProfile = {
-          key: 'main_profile',
-          streak: 1,
-          lastActiveDate: new Date().toISOString().split('T')[0],
-          totalStars: 0,
-          totalReviews: 0,
-          totalPronunciations: 0
-        };
-        resolve(req.result || defaultProfile);
-      };
-      req.onerror = () => resolve({
-        key: 'main_profile',
-        streak: 1,
-        lastActiveDate: new Date().toISOString().split('T')[0],
-        totalStars: 0,
-        totalReviews: 0
+    const defaultProfile = {
+      key: 'main_profile',
+      streak: 1,
+      lastActiveDate: new Date().toISOString().split('T')[0],
+      totalStars: 0,
+      totalReviews: 0,
+      totalPronunciations: 0
+    };
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('user_profile')) return defaultProfile;
+      return new Promise((resolve) => {
+        const tx = db.transaction('user_profile', 'readonly');
+        const store = tx.objectStore('user_profile');
+        const req = store.get('main_profile');
+        req.onsuccess = () => resolve(req.result || defaultProfile);
+        req.onerror = () => resolve(defaultProfile);
       });
-    });
+    } catch (e) {
+      return defaultProfile;
+    }
   }
 
   async saveUserProfile(profile) {
-    const db = await this.ensureDB();
-    return new Promise((resolve, reject) => {
-      const tx = db.transaction('user_profile', 'readwrite');
-      const store = tx.objectStore('user_profile');
-      profile.key = 'main_profile';
-      store.put(profile);
-      tx.oncomplete = () => resolve(profile);
-      tx.onerror = () => reject(tx.error);
-    });
+    try {
+      const db = await this.ensureDB();
+      if (!db || !db.objectStoreNames.contains('user_profile')) return profile;
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction('user_profile', 'readwrite');
+        const store = tx.objectStore('user_profile');
+        const record = { key: 'main_profile', ...profile, updatedAt: Date.now() };
+        store.put(record);
+        tx.oncomplete = () => resolve(record);
+        tx.onerror = () => resolve(record);
+      });
+    } catch (e) {
+      return profile;
+    }
   }
 
   // --- Preferences (LocalStorage) ---

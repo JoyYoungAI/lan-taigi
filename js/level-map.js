@@ -6,7 +6,10 @@
 class LevelMapManager {
   constructor() {
     this.lessons = [];
-    this.progressMap = {}; // levelKey -> { completed, stars, unlocked }
+    // Unconditionally initialize 1-1 as unlocked in memory from millisecond 0
+    this.progressMap = {
+      '1-1': { levelKey: '1-1', unitId: 1, nodeType: 1, completed: false, stars: 0, unlocked: true }
+    };
     this.profile = null;
     this.currentPlayingLevel = null;
     this.currentViewMode = 'map'; // 'map' or 'grid'
@@ -17,12 +20,12 @@ class LevelMapManager {
     try {
       const resp = await fetch('data/lessons_data.json');
       this.lessons = await resp.json();
-      await this.loadProgress();
-      this.renderDashboard();
-      this.renderMap();
     } catch (e) {
-      console.error('Failed to init LevelMap:', e);
+      console.error('Failed to init LevelMap lessons:', e);
     }
+    await this.loadProgress();
+    await this.renderDashboard();
+    this.renderMap();
   }
 
   switchLessonView(mode) {
@@ -63,17 +66,31 @@ class LevelMapManager {
   }
 
   async loadProgress() {
-    this.profile = await window.storage.getUserProfile();
-    const allProgress = await window.storage.getAllLevelProgress();
-    this.progressMap = {};
-    allProgress.forEach(p => {
-      this.progressMap[p.levelKey] = p;
-    });
+    // 1-1 is always guaranteed unlocked
+    this.progressMap['1-1'] = this.progressMap['1-1'] || {
+      levelKey: '1-1', unitId: 1, nodeType: 1, completed: false, stars: 0, unlocked: true
+    };
 
-    // Level 1-1 is always unlocked by default
-    if (!this.progressMap['1-1']) {
-      this.progressMap['1-1'] = { levelKey: '1-1', completed: false, stars: 0, unlocked: true };
-      await window.storage.saveLevelProgress('1-1', this.progressMap['1-1']);
+    try {
+      if (window.storage) {
+        this.profile = await window.storage.getUserProfile();
+        const allProgress = await window.storage.getAllLevelProgress();
+        if (Array.isArray(allProgress) && allProgress.length > 0) {
+          allProgress.forEach(p => {
+            if (p && p.levelKey) this.progressMap[p.levelKey] = p;
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('[LevelMap] loadProgress storage error, using memory fallback:', err);
+    }
+
+    // Double check 1-1
+    if (!this.progressMap['1-1'] || !this.progressMap['1-1'].unlocked) {
+      this.progressMap['1-1'] = { levelKey: '1-1', unitId: 1, nodeType: 1, completed: false, stars: 0, unlocked: true };
+    }
+    if (window.storage) {
+      window.storage.saveLevelProgress('1-1', this.progressMap['1-1']).catch(() => {});
     }
   }
 
@@ -82,7 +99,14 @@ class LevelMapManager {
     const container = document.getElementById('map-dashboard-container');
     if (!container) return;
 
-    const metrics = await window.srsEngine.getDashboardMetrics();
+    let metrics = { streak: 1, dueCount: 0, totalStars: 0, masteredCount: 0 };
+    try {
+      if (window.srsEngine && typeof window.srsEngine.getDashboardMetrics === 'function') {
+        metrics = await window.srsEngine.getDashboardMetrics();
+      }
+    } catch (err) {
+      console.warn('[LevelMap] renderDashboard metrics error, using default:', err);
+    }
 
     container.innerHTML = `
       <div class="map-dashboard-card">

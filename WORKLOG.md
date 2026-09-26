@@ -2,7 +2,7 @@
 
 **記錄日期**：2026 年 09 月 26 日  
 **專案名稱**：咱的台語 (Lán ê Tâi-gí) - 100% 離線臺灣台語教學與教育部辭典 PWA  
-**專案版本**：`v1.0.0 (Build 2026.09)`  
+**專案版本**：`v1.2.1 (Build 2026.09)`  
 **GitHub 專案**：[JoyYoungAI/lan-taigi](https://github.com/JoyYoungAI/lan-taigi)  
 **線上展示**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)  
 
@@ -122,6 +122,24 @@
 * **📱 前端整合與離線快取升級**：
   - `index.html`：頂部導航欄新增【🍜 台灣小吃】一級專屬分頁，配置地域切換標籤與關鍵字搜尋。
   - `sw.js`：快取名稱升級至 `lan-taigi-static-v3`，納入小吃資料庫與 `snack-map.js` 預載。
+
+---
+
+### 八、Phase 4 升級與 UI/UX 異常全面修復 (v1.2.1)
+* **🗺️ 闖關地圖無痛升級與 1-1 節點預設解鎖 (`js/level-map.js`)**：
+  - 徹底解決使用者截圖回報之「第 1-1 關卡被鎖住 (🔒)」、「頂部學習統計無故留白」問題。
+  - 在建構子層級嚴格保證節點 `1-1` 永遠預設為解鎖狀態 (`unlocked: true`)，無論是全新訪客或歷史本機快取升級，都不會再陷入無關可破的死胡同。
+  - 頂部學習數據儀表板引入全量容錯機制，在 IndexedDB 查詢異常或空資料庫時，以保底預設值 `{ streak: 1, dueCount: 0, totalStars: 0, masteredCount: 0 }` 立即渲染，杜絕任何白屏與樣式崩潰。
+* **🛡️ IndexedDB 版本平滑遷移防禦機制 (`js/storage.js`)**：
+  - 針對使用者瀏覽器可能暫存舊版 v1 DB 架構之情境，在 `saveSRSItem`、`getSRSItem`、`getAllSRSItems`、`saveLevelProgress`、`getLevelProgress`、`getAllLevelProgress`、`getUserProfile`、`saveUserProfile` 等所有儲存層 API 中全面加入 `db.objectStoreNames.contains(...)` 檢查。
+  - 全數包裹安全 `try...catch` 與記憶體 Fallback 機制，徹底消除 `NotFoundError: Failed to execute 'transaction' on 'IDBDatabase': One of the specified object stores was not found` 之嚴重崩潰。
+* **🔤 臺羅拼音與調號字型完整性支援 (`css/style.css`)**：
+  - 在 `:root` 中補齊宣告 `--font-serif` 變數（包含 `Charis SIL`, `Noto Serif TC`, `Songti TC` 等專業母語字型）。
+  - 在全站全域字型棧 `--font-family` 引入 `Charis SIL`, `Doulos SIL`, `DejaVu Sans`, `Noto Sans TC`，全面支援 Unicode 組合上垂直線調號（如第八聲字 `Ji̍t`、`Chha̍t` 等結合符號 `U+030D`），根除方塊豆腐字（Tofu Glyph）與標記錯位問題。
+* **⚡ Service Worker 快取策略重構與即時更新機制 (`sw.js`, `index.html`)**：
+  - 快取版本升級至 `lan-taigi-static-v4`，自動於啟用時清除所有過期舊靜態快取。
+  - 針對 App Shell 核心資產（HTML、CSS、JS）實施**「Network-First with Cache Fallback」**策略：使用者在線時永遠取得伺服器最新發布之樣式與邏輯，離線時無縫回退至本機快取，兼顧「100% 離線可用」與「在線發布即時生效」。
+  - 在 `index.html` 之所有 CSS 與 JS 載入標籤附加版本指紋綴詞 `?v=1.2.1`，全方位防止瀏覽器本地硬體暫存舊版樣式。
 
 ---
 

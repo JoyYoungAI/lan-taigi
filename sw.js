@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lan-taigi-static-v3';
+const CACHE_NAME = 'lan-taigi-static-v4';
 const AUDIO_CACHE = 'lan-taigi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -198,10 +198,41 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
+ 
+  // App Shell (HTML, CSS, JS): Network-First with cache fallback (always fresh styles & scripts when online)
+  const isAppShell = event.request.mode === 'navigate' ||
+                     url.pathname.endsWith('.html') ||
+                     url.pathname.endsWith('.css') ||
+                     url.pathname.endsWith('.js') ||
+                     url.pathname.endsWith('.webmanifest') ||
+                     url.pathname === '/' ||
+                     url.pathname.endsWith('/lan-taigi/');
 
-  // App Shell & Data: Cache First with network update
+  if (isAppShell) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request, { ignoreSearch: true }).then((cached) => {
+            if (cached) return cached;
+            if (event.request.mode === 'navigate') {
+              return caches.match('./index.html', { ignoreSearch: true }) || caches.match('./');
+            }
+          });
+        })
+    );
+    return;
+  }
+
+  // Data & Static Assets: Cache First with background revalidation
   event.respondWith(
-    caches.match(event.request).then((response) => {
+    caches.match(event.request, { ignoreSearch: true }).then((response) => {
       if (response) {
         // Fetch in background to revalidate if online
         fetch(event.request).then((freshResponse) => {
@@ -213,7 +244,7 @@ self.addEventListener('fetch', (event) => {
       }
 
       return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+        if (!networkResponse || networkResponse.status !== 200) {
           return networkResponse;
         }
         const responseToCache = networkResponse.clone();
