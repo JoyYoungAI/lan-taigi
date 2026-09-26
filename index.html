@@ -82,7 +82,24 @@
 
     <!-- Section 1: Lessons -->
     <section id="section-lessons" class="app-section active">
-      <div id="lesson-list-section">
+      <!-- Top Daily SRS & Learning Streak Dashboard -->
+      <div id="map-dashboard-container"></div>
+
+      <!-- Mode Switcher: Winding Level Map vs Curriculum Catalog -->
+      <div class="lesson-view-toggle-bar" style="display:flex; justify-content:center; gap:0.75rem; margin:1rem 0 1.5rem 0;">
+        <button id="view-mode-map-btn" class="btn btn-primary btn-sm" onclick="window.levelMap.switchLessonView('map')">
+          🗺️ 闖關學習地圖 (推薦)
+        </button>
+        <button id="view-mode-grid-btn" class="btn btn-outline btn-sm" onclick="window.levelMap.switchLessonView('grid')">
+          📚 傳統課程總覽
+        </button>
+      </div>
+
+      <!-- Duolingo-style Winding Map Container -->
+      <div id="level-map-container"></div>
+
+      <!-- Traditional Lesson Grid Container (default hidden when map is active) -->
+      <div id="lesson-list-section" style="display:none;">
         <div class="section-header">
           <h2>🎓 系統性主題情境教學課程</h2>
           <p>共 10 大情境單元，結合真實生活對話、實用核心單詞、字詞例句與在地文化小撇步。</p>
@@ -90,6 +107,7 @@
         <div id="lesson-list-container"></div>
       </div>
 
+      <!-- Lesson Detail Section -->
       <div id="lesson-detail-section" style="display:none;">
         <div id="lesson-detail-content"></div>
       </div>
@@ -354,9 +372,10 @@
         <div class="license-box">
           <h4>🚀 軟體與資料庫版本資訊</h4>
           <p>
-            • <strong>應用程式版本 (App Version)：</strong>v1.0.0 (Build 2026.09)<br>
+            • <strong>應用程式版本 (App Version)：</strong>v1.1.0 (Build 2026.09)<br>
             • <strong>辭典資料版本 (Dictionary Data Version)：</strong>教育部臺灣台語常用詞辭典 2026-09-24 最新發布版<br>
-            • <strong>資料規模：</strong>完整收錄 29,592 條詞目、23,298 條釋義、17,907 條例句、12,271 筆華台對照、407 筆方言讀音、2,473 筆百家姓
+            • <strong>資料規模：</strong>完整收錄 29,592 條詞目、23,298 條釋義、17,907 條例句、12,271 筆華台對照、407 筆方言讀音、2,473 筆百家姓<br>
+            • <strong>新增功能：</strong>Duolingo 風格闖關地圖、SM-2 間隔重複記憶引擎、100% 離線 Web Audio 發音聲調評分系統
           </p>
         </div>
 
@@ -413,7 +432,7 @@
         <a href="javascript:void(0)" onclick="window.app.showLicenseModal()" style="font-weight:700;">📜 授權與版本</a>
       </div>
       <p style="margin-top:0.5rem; line-height:1.6;">
-        「咱的台語」離線教學應用程式 (Lán ê Tâi-gí) <strong>v1.0.0</strong> &copy; 2026<br>
+        「咱的台語」離線教學應用程式 (Lán ê Tâi-gí) <strong>v1.1.0</strong> &copy; 2026<br>
         辭典資料依據教育部「臺灣台語常用詞辭典」(CC BY-ND 3.0 TW) 釋出 | 軟體原始碼採 MIT License 釋出<br>
         <a href="javascript:void(0)" onclick="window.app.showLicenseModal()" style="color:var(--primary); font-weight:700; text-decoration:underline;">檢視完整授權條款與版權聲明</a>
       </p>
@@ -427,6 +446,9 @@
   <script src="js/audio-manager.js"></script>
   <script src="js/phonology.js"></script>
   <script src="js/lessons.js"></script>
+  <script src="js/speech-evaluator.js"></script>
+  <script src="js/srs-engine.js"></script>
+  <script src="js/level-map.js"></script>
   <script src="js/dict.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/annesia.js"></script>

@@ -53,8 +53,10 @@ class LessonsManager {
 
     const listSec = document.getElementById('lesson-list-section');
     const detailSec = document.getElementById('lesson-detail-section');
-    if (listSec && detailSec) {
-      listSec.style.display = 'none';
+    const mapContainer = document.getElementById('level-map-container');
+    if (mapContainer) mapContainer.style.display = 'none';
+    if (listSec) listSec.style.display = 'none';
+    if (detailSec) {
       detailSec.style.display = 'block';
       this.renderLessonDetail(lesson);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -64,11 +66,16 @@ class LessonsManager {
   backToList() {
     const listSec = document.getElementById('lesson-list-section');
     const detailSec = document.getElementById('lesson-detail-section');
-    if (listSec && detailSec) {
-      detailSec.style.display = 'none';
-      listSec.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const mapContainer = document.getElementById('level-map-container');
+    if (detailSec) detailSec.style.display = 'none';
+    if (window.levelMap && window.levelMap.currentViewMode === 'map') {
+      if (mapContainer) mapContainer.style.display = 'block';
+      if (listSec) listSec.style.display = 'none';
+    } else {
+      if (listSec) listSec.style.display = 'block';
+      if (mapContainer) mapContainer.style.display = 'none';
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   renderLessonDetail(lesson) {

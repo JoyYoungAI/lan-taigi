@@ -6,7 +6,7 @@
 class StorageManager {
   constructor() {
     this.dbName = 'LanTaigiDB';
-    this.dbVersion = 1;
+    this.dbVersion = 2;
     this.db = null;
     this.initPromise = this.init();
   }
@@ -45,6 +45,24 @@ class StorageManager {
         // Study stats
         if (!db.objectStoreNames.contains('stats')) {
           db.createObjectStore('stats', { keyPath: 'key' });
+        }
+
+        // SM-2 Spaced Repetition Items store
+        if (!db.objectStoreNames.contains('srs_items')) {
+          const srsStore = db.createObjectStore('srs_items', { keyPath: 'id' });
+          srsStore.createIndex('nextReviewDate', 'nextReviewDate', { unique: false });
+          srsStore.createIndex('repetitions', 'repetitions', { unique: false });
+        }
+
+        // Level Map Progress store
+        if (!db.objectStoreNames.contains('level_progress')) {
+          const lvlStore = db.createObjectStore('level_progress', { keyPath: 'levelKey' });
+          lvlStore.createIndex('unitId', 'unitId', { unique: false });
+        }
+
+        // User Learner Profile store (streak, exp, stars)
+        if (!db.objectStoreNames.contains('user_profile')) {
+          db.createObjectStore('user_profile', { keyPath: 'key' });
         }
       };
 
@@ -224,6 +242,121 @@ class StorageManager {
       const tx = db.transaction('quiz_errors', 'readwrite');
       tx.objectStore('quiz_errors').clear();
       tx.oncomplete = () => resolve();
+    });
+  }
+
+  // --- SM-2 SRS Repetition Storage ---
+  async saveSRSItem(item) {
+    const db = await this.ensureDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction('srs_items', 'readwrite');
+      const store = tx.objectStore('srs_items');
+      store.put(item);
+      tx.oncomplete = () => resolve(item);
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  async getSRSItem(id) {
+    const db = await this.ensureDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction('srs_items', 'readonly');
+      const store = tx.objectStore('srs_items');
+      const req = store.get(String(id));
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => resolve(null);
+    });
+  }
+
+  async getAllSRSItems() {
+    const db = await this.ensureDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction('srs_items', 'readonly');
+      const store = tx.objectStore('srs_items');
+      const req = store.getAll();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = () => resolve([]);
+    });
+  }
+
+  async getDueSRSItems() {
+    const all = await this.getAllSRSItems();
+    const now = Date.now();
+    return all.filter(item => !item.nextReviewDate || item.nextReviewDate <= now);
+  }
+
+  // --- Level Map Progress Storage ---
+  async saveLevelProgress(levelKey, data) {
+    const db = await this.ensureDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction('level_progress', 'readwrite');
+      const store = tx.objectStore('level_progress');
+      const record = { levelKey, ...data, updatedAt: Date.now() };
+      store.put(record);
+      tx.oncomplete = () => resolve(record);
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  async getLevelProgress(levelKey) {
+    const db = await this.ensureDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction('level_progress', 'readonly');
+      const store = tx.objectStore('level_progress');
+      const req = store.get(levelKey);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => resolve(null);
+    });
+  }
+
+  async getAllLevelProgress() {
+    const db = await this.ensureDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction('level_progress', 'readonly');
+      const store = tx.objectStore('level_progress');
+      const req = store.getAll();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = () => resolve([]);
+    });
+  }
+
+  // --- User Profile (Streak, Stars, Exp) ---
+  async getUserProfile() {
+    const db = await this.ensureDB();
+    return new Promise((resolve) => {
+      const tx = db.transaction('user_profile', 'readonly');
+      const store = tx.objectStore('user_profile');
+      const req = store.get('main_profile');
+      req.onsuccess = () => {
+        const defaultProfile = {
+          key: 'main_profile',
+          streak: 1,
+          lastActiveDate: new Date().toISOString().split('T')[0],
+          totalStars: 0,
+          totalReviews: 0,
+          totalPronunciations: 0
+        };
+        resolve(req.result || defaultProfile);
+      };
+      req.onerror = () => resolve({
+        key: 'main_profile',
+        streak: 1,
+        lastActiveDate: new Date().toISOString().split('T')[0],
+        totalStars: 0,
+        totalReviews: 0
+      });
+    });
+  }
+
+  async saveUserProfile(profile) {
+    const db = await this.ensureDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction('user_profile', 'readwrite');
+      const store = tx.objectStore('user_profile');
+      profile.key = 'main_profile';
+      store.put(profile);
+      tx.oncomplete = () => resolve(profile);
+      tx.onerror = () => reject(tx.error);
     });
   }
 

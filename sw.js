@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lan-taigi-static-v1';
+const CACHE_NAME = 'lan-taigi-static-v2';
 const AUDIO_CACHE = 'lan-taigi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -12,6 +12,9 @@ const PRECACHE_ASSETS = [
   './js/audio-manager.js',
   './js/tone-synth.js',
   './js/lessons.js',
+  './js/speech-evaluator.js',
+  './js/srs-engine.js',
+  './js/level-map.js',
   './js/dict.js',
   './js/quiz.js',
   './js/annesia.js',

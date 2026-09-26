@@ -131,7 +131,12 @@ class App {
     }
 
     // Trigger specific tab logic
-    if (tab === 'bookmarks') {
+    if (tab === 'lessons') {
+      window.levelMap?.renderDashboard();
+      if (window.levelMap && window.levelMap.currentViewMode === 'map') {
+        window.levelMap.renderMap();
+      }
+    } else if (tab === 'bookmarks') {
       this.renderBookmarks();
     } else if (tab === 'mandarin') {
       window.dictManager?.loadMandarinComparison();
