@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lan-taigi-static-v2';
+const CACHE_NAME = 'lan-taigi-static-v3';
 const AUDIO_CACHE = 'lan-taigi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -15,6 +15,7 @@ const PRECACHE_ASSETS = [
   './js/speech-evaluator.js',
   './js/srs-engine.js',
   './js/level-map.js',
+  './js/snack-map.js',
   './js/dict.js',
   './js/quiz.js',
   './js/annesia.js',
@@ -25,6 +26,7 @@ const PRECACHE_ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './data/lessons_data.json',
+  './data/taiwan_snacks.json',
   './data/phonology_data.json',
   './data/dict_index.json',
   './data/annesia_data.json',

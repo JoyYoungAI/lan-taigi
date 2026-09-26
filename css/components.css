@@ -1919,3 +1919,448 @@
   color: var(--text-muted);
 }
 
+/* ==========================================================================
+   🍜 Taiwan Snacks & Night Market Ordering Builder Styling
+   ========================================================================== */
+
+.snack-region-tabs-bar {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0 1rem 0;
+  margin-bottom: 1.25rem;
+  scrollbar-width: thin;
+}
+
+.snack-region-tab {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.snack-region-tab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.snack-region-tab.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(27, 94, 32, 0.25);
+}
+
+/* --- Night Market Ordering Generator --- */
+.ordering-builder-card {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.8) 0%, rgba(240, 253, 244, 0.8) 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .ordering-builder-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: #334155;
+}
+
+.builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1rem;
+}
+
+[data-theme="dark"] .builder-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.builder-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.builder-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.builder-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.builder-select {
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.builder-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.builder-chip {
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.builder-chip:hover {
+  border-color: var(--primary);
+  background: rgba(46, 125, 50, 0.05);
+}
+
+.builder-chip.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.builder-output-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1.5px solid #10b981;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.output-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.output-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #047857;
+}
+
+.output-hz {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.output-tl {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+}
+
+.output-m {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.4rem;
+}
+
+/* --- Snacks Grid --- */
+.snacks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.snack-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.snack-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.snack-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.snack-card-icon {
+  font-size: 2.2rem;
+}
+
+.snack-city-badge {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .snack-city-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.snack-card-hz {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0 0 0.2rem 0;
+}
+
+.snack-card-tl {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.snack-card-m {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.snack-preview-quote {
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.5rem 0.65rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.quote-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.snack-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  margin-bottom: 0.85rem;
+}
+
+.snack-tag {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.72rem;
+}
+
+.snack-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.65rem;
+}
+
+/* --- Snack Detail Modal --- */
+.snack-modal-card {
+  max-width: 680px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.75rem;
+}
+
+.snack-modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.snack-modal-icon {
+  font-size: 3.2rem;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.snack-accents-box {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.accents-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.accent-chip {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.78rem;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.snack-lore-box {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Sentence Tabs in Modal */
+.snack-sentences-container {
+  margin-bottom: 1.5rem;
+}
+
+.snack-sent-tabs {
+  display: flex;
+  gap: 0.35rem;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 0.75rem;
+}
+
+.snack-sent-tab {
+  padding: 0.5rem 0.85rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.snack-sent-tab:hover {
+  color: var(--primary);
+}
+
+.snack-sent-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.sentence-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.sent-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.sent-type-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.sent-hz {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+.sent-tl {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.sent-m {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.4rem;
+}
+
+.snack-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+

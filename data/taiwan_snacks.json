@@ -1,0 +1,1018 @@
+[
+  {
+    "id": 1,
+    "hz": "鼎邊薖",
+    "tl": "tiánn-pinn-sê",
+    "mandarin": "鼎邊銼（基隆廟口百年傳統名點）",
+    "region": "north",
+    "city": "基隆市",
+    "icon": "🍲",
+    "audio_id": null,
+    "tags": ["基隆廟口", "米食", "熱湯", "海味"],
+    "origin": "源自福州傳統米食，將米漿淋在滾燙的大鍋邊緣，烘烤凝固後滑入湯中煮熟，口感滑嫩有彈性。基隆廟口以金針、金鉤蝦、香菇熬煮湯頭最為聞名。",
+    "accents": {
+      "泉腔": "tiánn-pinn-sê",
+      "漳腔": "tiánn-pinn-sôe"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗鼎邊薖，芫荽多落一點，包外帶！",
+        "tl": "Thâu-ke, tsi̍t uánn tiánn-pinn-sê, iân-sui tsē lo̍h tsi̍t-tiám, pau-tńg-khì!",
+        "m": "老闆，一碗鼎邊銼，香菜多放一點，外帶！"
+      },
+      "tasting": {
+        "hz": "這間的鼎邊薖皮真𩚬，湯頭有金鉤蝦佮金針，啉落去真鮮甜！",
+        "tl": "Tsit king ê tiánn-pinn-sê phuê tsin khiū, thng-thâu ū kim-kau-hê kah kim-tsiam, lim--lo̍h-khì tsin sian-tinn!",
+        "m": "這家的鼎邊銼麵皮很Q彈，湯頭有蝦米和金針，喝起來非常鮮甜！"
+      },
+      "lore": {
+        "hz": "去到基隆廟口，若無食一碗熱騰騰的鼎邊薖，就親像無來仝款。",
+        "tl": "Khì kàu Ke-lâng biō-kháu, nā bô tsia̍h tsi̍t uánn jia̍t-thíng-thíng ê tiánn-pinn-sê, tiō tshin-tshiūnn bô lâi kāng-khuán.",
+        "m": "去到基隆廟口，如果沒吃一碗熱騰騰的鼎邊銼，就好像沒來過一樣。"
+      }
+    },
+    "customizations": ["加芹菜", "加胡椒粉", "加辣粉", "不要香菜", "多加蝦仁羹"]
+  },
+  {
+    "id": 2,
+    "hz": "阿給",
+    "tl": "A-geh",
+    "mandarin": "淡水阿給（油豆腐包冬粉）",
+    "region": "north",
+    "city": "新北市",
+    "icon": "🥟",
+    "audio_id": null,
+    "tags": ["淡水老街", "特色名產", "油豆腐", "冬粉"],
+    "origin": "「阿給」一名源自日文「油揚げ」（Abura-age，油豆腐之意）。民國54年由淡水楊鄭錦文女士發明，將四方油豆腐切開掏空，填入炒過的冬粉，以魚漿封口蒸熟，淋上特調甜辣醬。",
+    "accents": {
+      "常見讀音": "A-geh / A-kheh"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿姊，我要一粒阿給佮一碗魚丸湯，愛小辣！",
+        "tl": "A-tsí, guá ài tsi̍t lia̍p A-geh kah tsi̍t uánn hî-uân-thng, ài sió-lua̍h!",
+        "m": "大姐，我要一個阿給和一碗魚丸湯，要小辣！"
+      },
+      "tasting": {
+        "hz": "阿給的油豆腐吸飽甜辣醬汁，裡面的冬粉滑溜入味，咬落去真飽汁！",
+        "tl": "A-geh ê iû-tāu-hū khip-pá tinn-lua̍h tsiùnn-tsiap, lí-bīn ê tang-hún ku̍t-liu ji̍p-bī, kā--lo̍h-khì tsin pá-tsiap!",
+        "m": "阿給的油豆腐吸飽甜辣醬汁，裡面的冬粉滑順入味，咬下去非常多汁！"
+      },
+      "lore": {
+        "hz": "來到淡水渡船頭，看海景食阿給，是數十年來上在地的浪漫享受。",
+        "tl": "Lâi kàu Tām-tsúi tōo-tsûn-thâu, khuànn hái-kíng tsia̍h A-geh, sī sì-tsa̍p nî lâi siōng tsāi-tē ê lōng-bān hiáng-siū.",
+        "m": "來到淡水渡船頭，看海景吃阿給，是數十年來最在地的浪漫享受。"
+      }
+    },
+    "customizations": ["大辣", "中辣", "小辣", "不辣（甜醬）", "配魚丸湯"]
+  },
+  {
+    "id": 3,
+    "hz": "深坑臭豆腐",
+    "tl": "Tshim-khenn tshàu-tāu-hū",
+    "mandarin": "深坑臭豆腐（紅燒/碳烤豆腐）",
+    "region": "north",
+    "city": "新北市",
+    "icon": "🧆",
+    "audio_id": 10581,
+    "tags": ["深坑老街", "碳烤", "麻辣", "香濃"],
+    "origin": "深坑水質清澈甘甜，加上傳統以鹽鹵凝固、柴火烘焙製法，做出帶有些許焦香味的豆腐。老街以麻辣臭豆腐、紅燒豆腐與碳烤臭豆腐串名聞全台。",
+    "accents": {
+      "臭豆腐": "tshàu-tāu-hū (全台皆同)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，來兩串炭烤臭豆腐，愛包泡菜佮芫荽，加中辣！",
+        "tl": "Thâu-ke, lâi nn̄g tshuàn thuànn-khó tshàu-tāu-hū, ài pau phàu-tshài kah iân-sui, ka tiong-lua̍h!",
+        "m": "老闆，來兩串碳烤臭豆腐，要包泡菜和香菜，加中辣！"
+      },
+      "tasting": {
+        "hz": "這間臭豆腐外皮烤甲赤赤，鼻起來臭，食落去芳閣甘甜！",
+        "tl": "Tsit king tshàu-tāu-hū guā-phuê khó kah tshiah-tshiah, phīnn--khí-lâi tshàu, tsia̍h--lo̍h-khì phang koh kam-tinn!",
+        "m": "這家臭豆腐外皮烤得微焦香脆，聞起來臭，吃進去香濃又甘美！"
+      },
+      "lore": {
+        "hz": "俗語講「臭豆腐，聞著臭、食著芳」，深坑老街逐個禮拜日攏擠滿觀光客。",
+        "tl": "Sio̍k-gí kóng 'Tshàu-tāu-hū, phīnn--tio̍h tshàu, tsia̍h--tio̍h phang', Tshim-khenn lāu-ke ta̍k ê lé-pài-ji̍t lóng tsik-muá kuan-kong-kheh.",
+        "m": "俗話說「臭豆腐，聞著臭、吃著香」，深坑老街每個星期天都擠滿了觀光客。"
+      }
+    },
+    "customizations": ["加泡菜", "加小黃瓜絲", "大辣", "微辣", "碳烤加芝麻"]
+  },
+  {
+    "id": 4,
+    "hz": "滷肉飯",
+    "tl": "lóo-bah-pn̄g",
+    "mandarin": "滷肉飯（台灣國飯，手切肉燥）",
+    "region": "north",
+    "city": "台北市",
+    "icon": "🍚",
+    "audio_id": 11390,
+    "tags": ["台灣名片", "經典主食", "黑金肉燥", "手切豬肉"],
+    "origin": "北部滷肉飯多取五花肉切小細條或丁狀，加入黑龍醬油、紅蔥頭、五香粉慢火細熬，膠質豐厚，淋在熱白飯上油亮發光，為全台共同記憶。",
+    "accents": {
+      "北部稱呼": "lóo-bah-pn̄g (五花碎肉)",
+      "南部稱呼": "bah-sò-pn̄g (肉燥飯) / lóo-bah-pn̄g (爌肉飯)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗大碗滷肉飯，愛半肥瘦，閣添一粒滷卵！",
+        "tl": "Thâu-ke, tsi̍t uánn tuā-uánn lóo-bah-pn̄g, ài puànn-puî-sán, koh thiam tsi̍t lia̍p lóo-nn̄g!",
+        "m": "老闆，一大碗滷肉飯，要半肥半瘦，再加一顆滷蛋！"
+      },
+      "tasting": {
+        "hz": "彼鍋黑金黑金的滷汁淋落白飯，肉燥肥而無油膩，黏嘴的膠質真過癮！",
+        "tl": "Hit ue oo-kim oo-kim ê lóo-tsiap lîm--lo̍h pe̍h-pn̄g, bah-sò puî jî bô iû-nī, liâm-tshuì ê kau-tsit tsin kuè-ín!",
+        "m": "那一鍋黑金光澤的滷汁淋在白飯上，肉燥肥而不膩，黏嘴的膠質真過癮！"
+      },
+      "lore": {
+        "hz": "無論是大餐館抑是巷仔口路邊攤，一碗熱騰騰的滷肉飯總會得溫暖異鄉遊子的胃。",
+        "tl": "Bô-lūn sī tuā tshan-kuán ia̍h-sī hāng-á-kháu lōo-pinn-thuann, tsi̍t uánn jia̍t-thíng-thíng ê lóo-bah-pn̄g tsóng ē-tit un-luán ī-hiong iû-tsú ê uī.",
+        "m": "無論是大餐館還是巷弄街角路邊攤，一碗熱騰騰的滷肉飯總能溫暖異鄉遊子的胃。"
+      }
+    },
+    "customizations": ["半肥半瘦", "偏肥（脂肉）", "偏瘦（赤肉）", "加滷蛋", "加油豆腐", "滷汁多淋一點"]
+  },
+  {
+    "id": 5,
+    "hz": "新竹摃丸湯",
+    "tl": "Sin-tik kòng-uân-thng",
+    "mandarin": "新竹貢丸湯（手工木槌槌打豬肉丸）",
+    "region": "north",
+    "city": "新竹市",
+    "icon": "🥣",
+    "audio_id": 1168,
+    "tags": ["風城名產", "手工搥打", "黑豬後腿肉", "脆彈多汁"],
+    "origin": "「摃丸」名稱源於台語「摃（kòng）」，意指用木槌用力捶打豬肉成肉漿。新竹九降風乾燥氣候加上黑豬後腿肉槌打，成就扎實脆彈的口感。",
+    "accents": {
+      "摃丸": "kòng-uân (台灣各地通稱)",
+      "貢丸": "華語諧音轉寫"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，來一碗炒米粉佮一碗摃丸湯，湯頭愛撒胡椒粉！",
+        "tl": "Thâu-ke, lâi tsi̍t uánn tshá-bí-hún kah tsi̍t uánn kòng-uân-thng, thng-thâu ài sap hôo-tsio-hún!",
+        "m": "老闆，來一碗炒米粉和一碗貢丸湯，湯頭要撒胡椒粉！"
+      },
+      "tasting": {
+        "hz": "這間的摃丸咬落去肉汁四濺，齒痕分明，真脆真𩚬，無雜肉味！",
+        "tl": "Tsit king ê kòng-uân kā--lo̍h-khì bah-tsiap sì-tsuānn, khí-hûn hun-bîng, tsin tshuè tsin khiū, bô tsa̍p-bah-bī!",
+        "m": "這家的貢丸咬下去肉汁四溢，齒痕分明，非常脆彈Q，沒有雜肉腥味！"
+      },
+      "lore": {
+        "hz": "古早師傅用大支木槌連續摃肉兩點鐘，才有法度做出遮爾有咬勁的摃丸。",
+        "tl": "Kóo-tsá sai-hū iōng tuā ki ba̍k-thuî liân-sio̍k kòng bah nn̄g tiám-tsing, tsiah ū huat-tōo tsò-tshut tsiah-nī ū kā-kìn ê kòng-uân.",
+        "m": "古早師傅用大木槌連續捶打肉漿兩個小時，才有辦法做出這麼有嚼勁的貢丸。"
+      }
+    },
+    "customizations": ["加芹菜珠", "加香菜", "多胡椒粉", "骨仔肉湯底", "外帶生貢丸一斤"]
+  },
+  {
+    "id": 6,
+    "hz": "新竹炒米粉",
+    "tl": "Sin-tik tshá-bí-hún",
+    "mandarin": "新竹炒米粉（風城九降風天然風乾）",
+    "region": "north",
+    "city": "新竹市",
+    "icon": "🍝",
+    "audio_id": 1093,
+    "tags": ["九降風", "炊粉", "肉燥肉絲", "爽口不爛"],
+    "origin": "新竹每年秋季吹拂乾燥強烈的「九降風」，天然風乾讓米粉保有高韌度與米香。新竹炒米粉以蒸熟的炊粉拌入香菇、肉絲、高麗菜與紅蔥肉燥。",
+    "accents": {
+      "水粉": "tsuí-hún (粗條水煮)",
+      "炊粉": "tshe-hún (細條蒸乾)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗大碗炒米粉，肉燥淋油芳一點，愛淋蒜蓉醬油！",
+        "tl": "Thâu-ke, tsi̍t uánn tuā-uánn tshá-bí-hún, bah-sò lîm iû-phang tsi̍t-tiám, ài lîm suàn-iông tsiùnn-iû!",
+        "m": "老闆，一大碗炒米粉，肉燥多淋香一點，要淋蒜蓉醬油！"
+      },
+      "tasting": {
+        "hz": "新竹米粉幼綿綿，炒起起來爽口袂爛，吸飽肉燥香，愈咬愈芳！",
+        "tl": "Sin-tik bí-hún iù-mî-mî, tshá--khí-lâi sóng-kháu bē nuā, khip-pá bah-sò phang, jú kā jú phang!",
+        "m": "新竹米粉細緻，炒起來爽口不軟爛，吸飽肉燥香氣，越嚼越香！"
+      },
+      "lore": {
+        "hz": "新竹有「風城」的號名，九降風吹來，曬出來的米粉上界出名。",
+        "tl": "Sin-tik ū 'Hong-siânn' ê hō-miâ, káu-kàng-hong tshue--lâi, phàiñ--tshut-lâi ê bí-hún siōng-kài tshut-miâ.",
+        "m": "新竹有「風城」的別稱，九降風吹拂下，曬出來的米粉最負盛名。"
+      }
+    },
+    "customizations": ["加蒜泥", "加辣椒醬", "肉燥多", "豆芽菜多", "搭貢丸湯套餐"]
+  },
+  {
+    "id": 7,
+    "hz": "太陽餅",
+    "tl": "thài-iông-piánn",
+    "mandarin": "台中太陽餅（多層酥皮麥芽甜餅）",
+    "region": "central",
+    "city": "台中市",
+    "icon": "🍪",
+    "audio_id": 10287,
+    "tags": ["台中伴手禮", "麥芽糖餡", "千層酥皮", "古早味糕餅"],
+    "origin": "台中經典漢式伴手禮糕餅，原本稱「麥芽餅」或「酥餅」。外皮以豬油或植物油手工層層摺疊烘烤成多層薄酥皮，內餡裹著純麥芽糖，香酥甜蜜。",
+    "accents": {
+      "太陽餅": "thài-iông-piánn",
+      "麥芽餅": "be̍h-gê-piánn"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "借問一下，這盒太陽餅是一盒幾塊？有蜂蜜抑是原味的無？",
+        "tl": "Tsioh-mn̄g tsi̍t-ē, tsit a̍p thài-iông-piánn sī tsi̍t a̍p kuí tè? Ū phang-bi̍t ia̍h-sī guân-bī--ê--bô?",
+        "m": "請問一下，這盒太陽餅一盒幾塊？有蜂蜜或是原味的嗎？"
+      },
+      "tasting": {
+        "hz": "太陽餅外皮酥到會落屑，咬開內底的麥芽糖軟汫甘甜，配熱茶上搭！",
+        "tl": "Thài-iông-piánn guā-phuê soo kàu ē lak-sut, kā-khui lāi-té ê be̍h-gê-thn̂g nńg-tsiánn kam-tinn, phuè jia̍t tê siōng tah!",
+        "m": "太陽餅外皮酥到會掉屑，咬開裡面的麥芽糖軟嫩甘甜，配熱茶最搭！"
+      },
+      "lore": {
+        "hz": "古早人坐火車到台中火車站，攏愛買幾盒太陽餅回去送親戚朋友做手信。",
+        "tl": "Kóo-tsá-lâng tsē hué-tshia kàu Tâi-tiong hué-tshia-thâu, lóng ài bé kuí a̍p thài-iông-piánn tńg-khì sàng tshin-tshiânn pîng-iú tsò tshiú-sìn.",
+        "m": "以前的人搭火車到台中火車站，都要買幾盒太陽餅回去送親友當伴手禮。"
+      }
+    },
+    "customizations": ["原味麥芽", "蜂蜜口味", "黑糖口味", "禮盒包裝", "現烤散裝"]
+  },
+  {
+    "id": 8,
+    "hz": "大腸包小腸",
+    "tl": "tuā-tn̂g pau sió-tn̂g",
+    "mandarin": "大腸包小腸（糯米腸夾碳烤台式香腸）",
+    "region": "central",
+    "city": "台中市",
+    "icon": "🌭",
+    "audio_id": null,
+    "tags": ["夜市熱門", "逢甲夜市", "碳烤糯米腸", "蒜頭搭香腸"],
+    "origin": "源於1990年代台灣夜市（台中逢甲夜市發揚光大），將烤得香脆的花生糯米腸縱向剖開，夾入碳烤台式豬肉香腸，再包入酸菜、小黃瓜與蒜頭。",
+    "accents": {
+      "香腸南部腔": "iân-tshiâng",
+      "香腸海口腔": "ian-tshiông / ian-tshiâng"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一組大腸包小腸，愛落酸菜佮小黃瓜，蒜頭放多一點！",
+        "tl": "Thâu-ke, tsi̍t tsoo tuā-tn̂g pau sió-tn̂g, ài lo̍h sng-tshài kah sió-n̂g-kue, suàn-thâu pàng tsē tsi̍t-tiám!",
+        "m": "老闆，一組大腸包小腸，要放酸菜和小黃瓜，蒜頭多放一點！"
+      },
+      "tasting": {
+        "hz": "糯米腸烤甲芳酥𩚬，配這條肥瘦剛好的紅香腸佮生蒜頭，真正是絕配！",
+        "tl": "Bí-tn̂g khó kah phang-soo khiū, phuè tsit tiâu puî-sán kong-hó ê âng iân-tshiâng kah tshenn suàn-thâu, tsin-tsiànn sī tsua̍t-phuè!",
+        "m": "糯米腸烤得香酥Q彈，搭配肥瘦適中的紅香腸和生蒜頭，真的是絕配！"
+      },
+      "lore": {
+        "hz": "台灣人食香腸講究「一口香腸配一瓣蒜頭」，辛香解膩，氣味無人比得過。",
+        "tl": "Tâi-uân-lâng tsia̍h iân-tshiâng káng-kiù 'tsi̍t-tshuì iân-tshiâng phuè tsi̍t-pān suàn-thâu', sin-phang kái-nī, khì-bī bô-lâng pí tit kuè.",
+        "m": "台灣人吃香腸講究「一口香腸配一瓣蒜頭」，辛香解膩，風味無可比擬。"
+      }
+    },
+    "customizations": ["原味黑胡椒", "蒜味加重", "芥末口味", "加酸菜", "加小黃瓜", "辣醬"]
+  },
+  {
+    "id": 9,
+    "hz": "彰化肉圓",
+    "tl": "Tsiang-huà bah-uân",
+    "mandarin": "彰化肉圓（低溫油泡半透明脆皮肉圓）",
+    "region": "central",
+    "city": "彰化縣",
+    "icon": "🥟",
+    "audio_id": 10059,
+    "tags": ["彰化三寶", "低溫溫油炸", "地瓜粉外皮", "筍丁後腿肉"],
+    "origin": "傳說起源於彰化北斗（寺廟賑災應急），後彰化市以地瓜粉加太白粉漿包裹竹筍丁、香菇與醃後腿肉，蒸熟後放進低溫溫油浸泡，外皮彈牙不焦硬。",
+    "accents": {
+      "肉圓": "bah-uân (彰化/全台普遍)",
+      "肉圓仔": "bah-uân-á"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿伯，兩粒肉圓，一粒愛加辣，一粒莫加芫荽，攏愛剪開！",
+        "tl": "A-peh, nn̄g lia̍p bah-uân, tsi̍t lia̍p ài ka-lua̍h, tsi̍t lia̍p mài ka-iân-sui, lóng ài tsián-khui!",
+        "m": "阿伯，兩顆肉圓，一顆要加辣，一顆不要香菜，都要剪開！"
+      },
+      "tasting": {
+        "hz": "油泡的肉圓皮極其𩚬，淋白米醬佮黑豆油膏，咬開豬肉筍丁滿嘴芳！",
+        "tl": "Iû-phàu ê bah-uân phuê ke̍k-kî khiū, lîm pe̍h-bí-tsiùnn kah oo-tāu-iû-ko, kā-khui ti-bah sún-teng muá-tshuì phang!",
+        "m": "溫油泡的肉圓皮極為Q彈，淋上白米甜醬與黑豆蔭油膏，咬開豬肉筍丁滿口肉香！"
+      },
+      "lore": {
+        "hz": "彰化有「肉圓王國」的號稱，單單市區就有十幾間傳承三四代的老字號。",
+        "tl": "Tsiang-huà ū 'Bah-uân Ông-kok' ê hō-tshing, tan-tan tshī-khu tiō ū tsa̍p-kuí king thuân-tîng sann-sì tāi ê lāu-jī-hō.",
+        "m": "彰化有「肉圓王國」的美稱，光是市區就有十幾家傳承三四代的老字號。"
+      }
+    },
+    "customizations": ["剪開", "不剪", "白米甜醬多", "加麻辣醬", "去芫荽", "加蒜蓉"]
+  },
+  {
+    "id": 10,
+    "hz": "炕肉飯",
+    "tl": "khòng-bah-pn̄g",
+    "mandarin": "彰化爌肉飯（插竹籤整塊紅燒蹄膀）",
+    "region": "central",
+    "city": "彰化縣",
+    "icon": "🍖",
+    "audio_id": null,
+    "tags": ["彰化三寶", "24小時接力", "插竹籤", "紅燒腳庫"],
+    "origin": "彰化人24小時都有爌肉飯可吃。嚴選溫體豬後腿蹄膀（腳庫）或三層肉，用竹籤串緊以防散開，放入老滷汁慢火煨煮至皮透肉嫩，入口即化。",
+    "accents": {
+      "炕肉 / 爌肉": "khòng-bah",
+      "封肉": "hong-bah (南部辦桌多稱)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗炕肉飯，肉揀卡肥一點的腳庫，閣叫一碗筍乾湯！",
+        "tl": "Thâu-ke, tsi̍t uánn khòng-bah-pn̄g, bah kíng khah puî tsi̍t-tiám ê kha-khòo, koh kiò tsi̍t uánn sún-kuann-thng!",
+        "m": "老闆，一碗爌肉飯，肉挑比較肥一點的蹄膀，再點一碗筍乾湯！"
+      },
+      "tasting": {
+        "hz": "這塊爌肉皮油潤軟爛，筷子一挾就開，油脂化在熱白飯內底，有夠好食！",
+        "tl": "Tsit tè khòng-bah phuê iû-lūn nńg-nuā, tuī-á tsi̍t ngeh tiō khui, iû-tsí huà tsai jia̍t pe̍h-pn̄g lāi-té, ū-kàu hó-tsia̍h!",
+        "m": "這塊爌肉豬皮油潤軟爛，筷子一夾就分開，油脂化在熱白飯裡，太好吃了！"
+      },
+      "lore": {
+        "hz": "在彰化，不管是透早天未光抑是半暝仔，街頭巷尾隨時攏尋得到熱騰騰的炕肉飯。",
+        "tl": "Tsai Tsiang-huà, put-kuán sī thàu-tsá thinn buē kng ia̍h-sī puànn-mî-á, ke-thâu hāng-bué suî-sî lóng tshuē-tit-tio̍h jia̍t-thíng-thíng ê khòng-bah-pn̄g.",
+        "m": "在彰化，不管是清晨天還沒亮還是大半夜，大街小巷隨時都能找到熱騰騰的爌肉飯。"
+      }
+    },
+    "customizations": ["腳庫肉（帶皮肥瘦）", "二層肉（軟嫩）", "全瘦肉", "加滷白菜", "加醃黃瓜片"]
+  },
+  {
+    "id": 11,
+    "hz": "牛舌餅",
+    "tl": "gû-tsih-piánn",
+    "mandarin": "鹿港/宜蘭牛舌餅（薄脆 vs 厚實軟甜）",
+    "region": "central",
+    "city": "彰化縣鹿港鎮",
+    "icon": "🥖",
+    "audio_id": 1242,
+    "tags": ["鹿港古鎮", "茶點伴手禮", "厚片麥芽", "宜蘭超薄"],
+    "origin": "形狀長橢圓形狀似牛舌而得名。鹿港牛舌餅多為厚片烤餅，內裹軟嫩麥芽糖；宜蘭牛舌餅則發展成薄如紙片的香脆點心，兩者風格截然不同各擅勝場。",
+    "accents": {
+      "牛舌餅": "gû-tsih-piánn",
+      "鹿港偏泉腔": "gî-tsih-piánn"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家娘，這包牛舌餅是剛出爐烘好的無？我要兩包原味麥芽糖的。",
+        "tl": "Thâu-ke-niû, tsit pau gû-tsih-piánn sī kng tshut-lôo hang--hó--ê--bô? Guá ài nn̄g pau guân-bī be̍h-gê-thn̂g--ê.",
+        "m": "老闆娘，這包牛舌餅是剛出爐烤好的嗎？我要兩包原味麥芽糖的。"
+      },
+      "tasting": {
+        "hz": "鹿港的牛舌餅厚實軟綿，現烤出爐咬落去熱辣辣，麥芽糖絲牽到真長！",
+        "tl": "Lo̍k-káng ê gû-tsih-piánn kāu-si̍t nńg-mî, hiān-khó tshut-lôo kā--lo̍h-khì jia̍t-la̍h-la̍h, be̍h-gê-thn̂g-si khan kàu tsin tn̂g!",
+        "m": "鹿港的牛舌餅厚實鬆軟，現烤出爐咬下去熱騰騰，麥芽糖絲拉得很長！"
+      },
+      "lore": {
+        "hz": "來到鹿港九曲巷佮天后宮，空氣中時常飄散著烘牛舌餅的麵粉甜香。",
+        "tl": "Lâi kàu Lo̍k-káng Káu-khiok-hāng kah Thian-hiō-kiong, khong-khì tiong sî-siông phiau-sàn tio̍h hang gû-tsih-piánn ê mī-hún tinn-phang.",
+        "m": "來到鹿港九曲巷與天后宮，空氣中時常飄散著烤牛舌餅的麵粉甜香。"
+      }
+    },
+    "customizations": ["現烤熱餅", "原味麥芽", "黑糖口味", "蜂蜜口味", "伴手禮盒"]
+  },
+  {
+    "id": 12,
+    "hz": "鹿港麵線糊",
+    "tl": "Lo̍k-káng mī-suànn-kôo",
+    "mandarin": "鹿港麵線糊（手工紅麵線煮赤肉羹）",
+    "region": "central",
+    "city": "彰化縣鹿港鎮",
+    "icon": "🍜",
+    "audio_id": 180,
+    "tags": ["鹿港古味", "手工紅麵線", "醃後腿肉條", "烏醋芫荽"],
+    "origin": "鹿港麵線糊選用手工日曬紅麵線，煮到軟爛化為濃郁滑糊。配料加入醃漬地瓜粉裹漿的豬後腿赤肉羹，勾芡後淋上烏醋、白胡椒與香菜。",
+    "accents": {
+      "麵線": "mī-suànn",
+      "泉州腔發音": "mī-suànn-kôo"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿姊，來一碗大碗麵線糊，黑醋幫我淋重一點，愛加蒜汁！",
+        "tl": "A-tsí, lâi tsi̍t uánn tuā-uánn mī-suànn-kôo, oo-tshòo pang guá lîm tāng tsi̍t-tiám, ài ka suàn-tsiap!",
+        "m": "大姐，來一大碗麵線糊，烏醋幫我淋重一點，要加蒜汁！"
+      },
+      "tasting": {
+        "hz": "麵線糊滑溜順喉，入口即化，赤肉羹咬起來結實肉甜，烏醋提味真開胃！",
+        "tl": "Mī-suànn-kôo ku̍t-liu sūn-âu, ji̍p-tshuì tsik huà, tshiah-bah-kenn kā--khí-lâi kiat-si̍t bah-tinn, oo-tshòo thê-bī tsin khui-uī!",
+        "m": "麵線糊滑順順口，入口即化，赤肉羹嚼起來扎實鮮甜，烏醋提味非常開胃！"
+      },
+      "lore": {
+        "hz": "在鹿港第一市場，在地人吃麵線糊習慣免用湯匙，直接捧碗用嘴沿順順吸入喉。",
+        "tl": "Tsai Lo̍k-káng Tē-it Tshī-tiûnn, tsāi-tē-lâng tsia̍h mī-suànn-kôo si̍p-kuàn bián iōng thng-sî, ti̍t-tsiap phíng uánn iōng tshuì-iân sūn-sūn khip ji̍p âu.",
+        "m": "在鹿港第一市場，在地人吃麵線糊習慣不用湯匙，直接端碗沿著碗緣順順吸入口中。"
+      }
+    },
+    "customizations": ["烏醋加重", "蒜泥加量", "不要芫荽", "加特製辣油", "多加赤肉羹"]
+  },
+  {
+    "id": 13,
+    "hz": "火雞肉飯",
+    "tl": "hué-ke-bah-pn̄g",
+    "mandarin": "嘉義火雞肉飯（淋火雞油與自炸紅蔥酥）",
+    "region": "south",
+    "city": "嘉義市",
+    "icon": "🍗",
+    "audio_id": 12058,
+    "tags": ["嘉義之光", "火雞油蔥", "火雞腿肉片", "香甜米飯"],
+    "origin": "二戰後駐台美軍帶來火雞，嘉義業者將火雞肉撕成粗絲或厚切肉片覆在白飯上，淋上純火雞骨熬煮之濃郁雞油、自炸紅蔥頭香油與特調甜醬油。",
+    "accents": {
+      "火雞肉飯": "hué-ke-bah-pn̄g / hé-ke-bah-pn̄g",
+      "肉片飯": "bah-phìnn-pn̄g (火雞腿厚切)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，我要一碗火雞肉片飯，火雞油淋多一點，閣叫一盤燙地瓜葉！",
+        "tl": "Thâu-ke, guá ài tsi̍t uánn hué-ke bah-phìnn-pn̄g, hué-ke-iû lîm tsē tsi̍t-tiám, koh kiò tsi̍t puânn thǹg han-tsû-hio̍h!",
+        "m": "老闆，我要一碗火雞肉片飯，火雞油多淋一點，再點一盤燙地瓜葉！"
+      },
+      "tasting": {
+        "hz": "火雞腿肉片嫰又帶Q，火雞油蔥鹹芳回甘，白飯粒粒吸飽香氣，扒到碗底朝天！",
+        "tl": "Hué-ke-thuí bah-phìnn nūn koh tuà khiū, hué-ke iû-tshang kiâm-phang huê-kam, pe̍h-pn̄g lia̍p-lia̍p khip-pá phang-khì, pe kàu uánn-té tiâu thinn!",
+        "m": "火雞腿肉片嫩中帶Q，火雞油蔥油香鹹甜回甘，白飯粒粒吸飽香氣，扒到碗底朝天！"
+      },
+      "lore": {
+        "hz": "嘉義火雞肉飯名聞全省，每位嘉義人心中攏有一間無人可以取代的私房第一名。",
+        "tl": "Ka-gī hué-ke-bah-pn̄g bîng-bûn tsuân-síng, ta̍k-uī Ka-gī-lâng sim-tiong lóng ū tsi̍t king bô-lâng khó-í tshú-tāi ê su-pông tē-it miâ.",
+        "m": "嘉義火雞肉飯聞名全台，每位嘉義人心中都有一家無可取代的私房第一名。"
+      }
+    },
+    "customizations": ["火雞肉片（腿肉）", "火雞肉絲", "雞油淋多一點", "加半熟荷包蛋", "加醃黃蘿蔔"]
+  },
+  {
+    "id": 14,
+    "hz": "白醋涼麵",
+    "tl": "pe̍h-tshòo liâng-mī",
+    "mandarin": "嘉義白醋涼麵（特製美乃滋與胡麻醬寬扁麵）",
+    "region": "south",
+    "city": "嘉義市",
+    "icon": "🥗",
+    "audio_id": null,
+    "tags": ["嘉義限定", "白醋美乃滋", "寬扁黃麵", "蒜泥胡麻"],
+    "origin": "嘉義在地人將沙拉醬（美乃滋）俗稱為「白醋（pe̍h-tshòo）」。嘉義涼麵選用寬扁形黃麵，淋上胡麻醬、蒜泥，最重要是淋上一大勺酸甜微酸的台式白醋沙拉醬。",
+    "accents": {
+      "白醋": "pe̍h-tshòo (嘉義特指美乃滋)",
+      "涼麵": "liâng-mī"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿姨，大份涼麵一碗，白醋愛淋多，蒜泥放重一點，小辣！",
+        "tl": "A-î, tuā hūn liâng-mī tsi̍t uánn, pe̍h-tshòo ài lîm tsē, suàn-nî pàng tāng tsi̍t-tiám, sió-lua̍h!",
+        "m": "阿姨，大份涼麵一碗，白醋（美乃滋）多淋點，蒜泥放多一點，小辣！"
+      },
+      "tasting": {
+        "hz": "闊麵條幼滑冰涼，白醋美乃滋調和麻醬的厚重，酸甘鹹甜，熱天食真消暑！",
+        "tl": "Khuah mī-tiâu iù-ku̍t ping-liâng, pe̍h-tshòo bí-nái-tsu tiâu-hô muâ-tsiùnn ê kāu-tāng, sng-kam-kiâm-tinn, jua̍h-thinn tsia̍h tsin siau-tsú!",
+        "m": "寬扁麵條滑順冰涼，美乃滋調和了麻醬的濃重，酸甜鹹香，夏天吃非常消暑！"
+      },
+      "lore": {
+        "hz": "嘉義人的DNA就是「萬物皆可淋白醋」，涼麵無淋白醋就親像失去靈魂。",
+        "tl": "Ka-gī-lâng ê DNA tiō-sī 'bān-bu̍t kai khó lîm pe̍h-tshòo', liâng-mī bô lîm pe̍h-tshòo tiō tshin-tshiūnn sit-khì lîng-hûn.",
+        "m": "嘉義人的特色就是「什麼都可以淋美乃滋」，涼麵沒淋白醋就好像失去了靈魂。"
+      }
+    },
+    "customizations": ["白醋多一點", "蒜泥加量", "加小黃瓜絲", "加小辣", "配皮蛋豆腐"]
+  },
+  {
+    "id": 15,
+    "hz": "擔仔麵",
+    "tl": "tànn-á-mī",
+    "mandarin": "台南擔仔麵（度小月挑扁擔鮮蝦肉燥麵）",
+    "region": "south",
+    "city": "台南市",
+    "icon": "🍜",
+    "audio_id": 11380,
+    "tags": ["台南府城", "百年老店", "度小月", "火燒蝦蝦湯"],
+    "origin": "清光緒年間洪芋頭先生創立。台南漁民每年七、八月颱風季節無法出海捕魚稱為「度小月」，因而挑著扁擔沿街叫賣肉燥麵，湯頭以火燒蝦蝦頭熬煮極為甘美。",
+    "accents": {
+      "擔仔麵": "tànn-á-mī",
+      "度小月": "tōo-sió-gue̍h"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗擔仔麵，愛落蒜泥、芫荽，湯多一點，加一尾鮮蝦！",
+        "tl": "Thâu-ke, tsi̍t uánn tànn-á-mī, ài lo̍h suàn-nî, iân-sui, thng tsē tsi̍t-tiám, ka tsi̍t bué tshenn-hê!",
+        "m": "老闆，一碗擔仔麵，要加蒜泥、香菜，湯多一點，加一隻鮮蝦！"
+      },
+      "tasting": {
+        "hz": "蝦頭熬的湯底鮮甜醇厚，肉燥精燉甘香，麵條爽脆彈牙，真有古早味！",
+        "tl": "Hê-thâu ngâu ê thng-té sian-tinn sûn-kāu, bah-sò tsing-tūn kam-phang, mī-tiâu sóng-tshuè tuânn-gê, tsin ū kóo-tsá-bī!",
+        "m": "蝦頭熬煮的湯底鮮甜醇厚，肉燥慢燉甘香，麵條爽脆有彈性，非常有古早風味！"
+      },
+      "lore": {
+        "hz": "擔仔麵精髓在於量小巧精緻，昔日文人雅士吃巧不吃飽，一兩碗細細品味。",
+        "tl": "Tànn-á-mī tsing-suī tsāi-î liōng sió-khiáu tsing-tì, sik-ji̍t bûn-jîn ngá-sū tsia̍h khiáu put tsia̍h pá, tsi̍t nn̄g uánn sè-sè phín-bī.",
+        "m": "擔仔麵的精髓在於精巧細緻，往昔文人雅士重在品嘗精巧而非填飽肚子，一兩碗慢慢品味。"
+      }
+    },
+    "customizations": ["湯麵", "乾麵（撈麵）", "加滷鴨蛋", "加貢丸", "蒜泥加量", "去香菜"]
+  },
+  {
+    "id": 16,
+    "hz": "牛肉湯",
+    "tl": "gû-bah-thng",
+    "mandarin": "台南牛肉湯（現宰溫體黃牛肉淋熱高湯）",
+    "region": "south",
+    "city": "台南市",
+    "icon": "🥩",
+    "audio_id": 12876,
+    "tags": ["府城早餐", "善化現宰溫體牛", "滾燙高湯即沖", "粉紅鮮嫩"],
+    "origin": "台南善化牛墟每日清晨現宰溫體黃牛直送市區，不經冷藏冷凍。師傅刀工將新鮮牛肉切成薄片置於碗中，直接以牛大骨與蔬果熬製滾燙高湯淋下沖燙至粉嫩。",
+    "accents": {
+      "牛肉湯": "gû-bah-thng (南部通稱)",
+      "牛肉": "gû-bah"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗溫體牛肉湯，肉切油花，附一碗肉燥飯，薑絲配膏豆油！",
+        "tl": "Thâu-ke, tsi̍t uánn un-thé gû-bah-thng, bah tshiat iû-hue, hù tsi̍t uánn bah-sò-pn̄g, kiunn-si phuè ko-tāu-iû!",
+        "m": "老闆，一碗溫體牛肉湯，肉切帶油花的，附一碗肉燥飯，薑絲配醬油膏！"
+      },
+      "tasting": {
+        "hz": "滾水一沖，牛肉呈粉紅色，咬落去滑嫩柔軟，清甜肉香在嘴裡化開！",
+        "tl": "Kún-tsuí tsi̍t tshiong, gû-bah tîng hún-âng-sik, kā--lo̍h-khì ku̍t-nūn jiú-luán, tshing-tinn bah-phang tsai tshuì--lí huà--khui!",
+        "m": "滾燙高湯一沖，牛肉呈現粉紅色，咬下去滑嫩柔軟，清甜肉香在嘴裡化開！"
+      },
+      "lore": {
+        "hz": "天猶未光，台南牛肉湯店門口就已經排規排在地人，用一碗滾燙的牛肉湯開啟活力的一工。",
+        "tl": "Thinn iáu-buē kng, Tâi-lâm gû-bah-thng tiàm mn̂g-kháu tiō í-king pâi kui pâi tsāi-tē-lâng, iōng tsi̍t uánn kún-thǹg ê gû-bah-thng khai-khí ua̍h-le̍k ê tsi̍t-kang.",
+        "m": "天還沒亮，台南牛肉湯店門口就已經排滿整排在地人，用一碗滾燙的牛肉湯開啟活力的一天。"
+      }
+    },
+    "customizations": ["雪花牛肉（五花）", "瘦肉薄切", "湯頭不加米酒", "加米酒提味", "附肉燥飯"]
+  },
+  {
+    "id": 17,
+    "hz": "鱔魚意麵",
+    "tl": "siān-hî ì-mī",
+    "mandarin": "台南鱔魚意麵（大火鑊氣炒生炒/勾芡羹麵）",
+    "region": "south",
+    "city": "台南市",
+    "icon": "🍜",
+    "audio_id": 12076,
+    "tags": ["府城猛火", "鑊氣爆炒", "油炸炸意麵", "酸甘鹹甜羹"],
+    "origin": "台南代表性炒麵料理，廚師以特製大黑鐵鍋、大火猛油在短短數十秒內快速翻炒新鮮鱔魚片、洋蔥與蒜末，魚肉脆嫩不腥，搭配油炸雞蛋意麵，酸甜勾芡。",
+    "accents": {
+      "鱔魚": "siān-hî (台南漳泉混腔)",
+      "意麵": "ì-mī"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗乾炒鱔魚意麵，大火鑊氣重一點，加小辣，愛酸甜！",
+        "tl": "Thâu-ke, tsi̍t uánn kuann-tshá siān-hî ì-mī, tuā-hué o̍k-khì tāng tsi̍t-tiám, ka sió-lua̍h, ài sng-tinn!",
+        "m": "老闆，一碗乾炒鱔魚意麵，大火鑊氣重一點，加小辣，要酸甜味！"
+      },
+      "tasting": {
+        "hz": "這間的鱔魚炒甲真爽脆，意麵吸透烏醋焦香醬汁，酸甘鹹甜，鑊氣十足！",
+        "tl": "Tsit king ê siān-hî tshá kah tsin sóng-tshuè, ì-mī khip thàu oo-tshòo tsiau-phang tsiùnn-tsiap, sng-kam-kiâm-tinn, o̍k-khì tsa̍p-tsok!",
+        "m": "這家的鱔魚炒得非常爽脆，意麵吸透了烏醋焦香醬汁，酸甜鹹香，鍋氣十足！"
+      },
+      "lore": {
+        "hz": "台南師傅炒鱔魚的功夫講究手速，猛火烈焰下翻鍋幾下就出爐，考驗廚師一生真本領。",
+        "tl": "Tâi-lâm sai-hū tshá siān-hî ê kong-hu káng-kiù tshiú-sok, bíng-hué lia̍t-iām hā huan ue kuí-ē tiō tshut-lôo, khó-giām tû-su it-sing tsin pún-niá.",
+        "m": "台南師傅炒鱔魚的功夫講究手速，猛火烈焰下翻鍋幾下就出爐，考驗廚師一生的真本領。"
+      }
+    },
+    "customizations": ["乾炒（鑊氣無羹）", "勾芡（酸甜羹湯）", "加辣", "鱔魚多一份", "意麵換油麵"]
+  },
+  {
+    "id": 18,
+    "hz": "棺材板",
+    "tl": "kuann-tshâ-pán",
+    "mandarin": "台南棺材板（油炸厚片土司鑲濃湯內餡）",
+    "region": "south",
+    "city": "台南市",
+    "icon": "🍞",
+    "audio_id": null,
+    "tags": ["沙卡里巴", "中西合璧", "酥炸土司", "雞肝海鮮白醬"],
+    "origin": "民國30年代由台南赤崁戲院旁「盛場」（沙卡里巴）許六一先生創立，原稱「雞肝板」。將西式厚片土司炸至金黃酥脆，挖空中央注入洋蔥、雞肉、青豆等西式白醬濃湯。",
+    "accents": {
+      "棺材板": "kuann-tshâ-pán",
+      "棺材": "kuann-tshâ"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一個現炸棺材板，刀叉幫我準備，內餡愛熱熱滾燙！",
+        "tl": "Thâu-ke, tsi̍t ê hiān-tsà kuann-tshâ-pán, to-tshe pang guá tsún-pī, lāi-phuè ài jia̍t-jia̍t kún-thǹg!",
+        "m": "老闆，一個現炸棺材板，刀叉幫我準備，內餡要熱滾滾的！"
+      },
+      "tasting": {
+        "hz": "土司炸甲金黃香酥，咬落去咔嚓一聲，內底濃稠的奶香白醬流出來，真豐富！",
+        "tl": "Thóo-su tsà kah kim-n̂g phang-soo, kā--lo̍h-khì khah-tshah tsi̍t-siann, lāi-té lông-tiû ê ling-phang pe̍h-tsiùnn lâu--tshut-lâi, tsin hong-hù!",
+        "m": "吐司炸得金黃香酥，咬下去咔嚓一聲，裡面濃郁的奶香白醬流出來，真豐富！"
+      },
+      "lore": {
+        "hz": "據說因其外形金黃四方親像古代官棺，教授品嘗後開玩笑取名「棺材板」，寓意「升官發財」，反倒名噪全台。",
+        "tl": "Kù-suat in-kî guā-hîng kim-n̂g sì-hong tshin-tshiūnn kóo-tāi kuann-kuann, kàu-siū phín-sióng āu khui-uán-tshiò tshú-miâ 'kuann-tshâ-pán', gū-ì 'sing-kuann huat-tsâi', huán-tò bîng-tshò tsuân-tâi.",
+        "m": "據說因其外形金黃四方像古代棺木，教授品嘗後開玩笑取名「棺材板」，寓意「升官發財」，反而名噪全台。"
+      }
+    },
+    "customizations": ["傳統雞肉海鮮餡", "咖哩豬肉餡", "現炸熱酥", "外帶紙盒"]
+  },
+  {
+    "id": 19,
+    "hz": "虱目魚肚湯",
+    "tl": "sat-ba̍k-hî-tōo-thng",
+    "mandarin": "台南虱目魚肚湯（無刺鮮甜魚肚清湯）",
+    "region": "south",
+    "city": "台南市",
+    "icon": "🐟",
+    "audio_id": 12673,
+    "tags": ["台南市魚", "安平漁港", "無刺虱目魚肚", "嫩薑清湯"],
+    "origin": "虱目魚又稱「國姓魚」，是南台灣重要養殖海味。台南師傅手工拔除魚刺，取油潤厚實的魚肚，以魚骨熬高湯，加入嫩薑絲即滾即食，極致鮮美甘甜。",
+    "accents": {
+      "虱目魚": "sat-ba̍k-hî / sap-ba̍k-hî",
+      "麻豆泉腔": "sat-ba̍k-hû"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗無刺虱目魚肚湯，薑絲愛放多，配一碗肉燥飯！",
+        "tl": "Thâu-ke, tsi̍t uánn bô-tshì sat-ba̍k-hî-tōo-thng, kiunn-si ài pàng tsē, phuè tsi̍t uánn bah-sò-pn̄g!",
+        "m": "老闆，一碗無刺虱目魚肚湯，薑絲要多放，配一碗肉燥飯！"
+      },
+      "tasting": {
+        "hz": "虱目魚肚中央一層晶瑩油質，滑溜肥甘無腥味，魚湯清甜透心涼！",
+        "tl": "Sat-ba̍k-hî-tōo tiong-ng tsi̍t tsân tsing-îng iû-tsit, ku̍t-liu puî-kam bô tshenn-bī, hî-thng tshing-tinn thàu-sim-liâng!",
+        "m": "虱目魚肚中央一層晶瑩的魚油，滑溜肥美甘甜沒有腥味，魚湯清爽鮮甜！"
+      },
+      "lore": {
+        "hz": "傳說鄭成功入台時，看著在地漁民獻上的鮮魚，開嘴問：「啥物魚？」，諧音便演變為「虱目魚」。",
+        "tl": "Thuân-suat Tēnn Sîng-kong ji̍p Tâi sî, khuànn-tio̍h tsāi-tē hî-bîn hiàn-siōng ê tshenn-hî, khui-tshuì mn̄g: 'Siánn-mih hî?', hâi-im piān ián-piàn uî 'sat-ba̍k-hî'.",
+        "m": "傳說鄭成功來台時，看著在地漁夫獻上的魚，開口問：「什麼魚？」，諧音演變為「虱目魚」。"
+      }
+    },
+    "customizations": ["加蚵仔", "加蛤蜊", "薑絲多", "不加味素", "煎魚肚（乾煎）"]
+  },
+  {
+    "id": 20,
+    "hz": "旗津烤黑輪",
+    "tl": "Kî-tin khó hê-lûn",
+    "mandarin": "旗津烤黑輪（新鮮旗魚漿手工碳烤黑輪片）",
+    "region": "south",
+    "city": "高雄市",
+    "icon": "🍢",
+    "audio_id": 13074,
+    "tags": ["旗津渡輪", "新鮮旗魚漿", "木炭現烤", "刷甜辣醬"],
+    "origin": "高雄臨近遠洋漁港，取新鮮旗魚肉打成彈性肉漿，捏成長條狀或圓扁片狀油炸成型，再以木炭細火慢烤，刷上特調鹹甜醬油膏與花生辣醬，撒上白芝麻。",
+    "accents": {
+      "黑輪": "hê-lûn / o-lián (日語 Oden 轉音)",
+      "黑輪片": "hê-lûn-phìnn"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿叔，我要三支烤黑輪片，醬油膏刷厚一點，撒胡椒粉佮辣椒粉！",
+        "tl": "A-tsik, guá ài sann ki khó hê-lûn-phìnn, tāu-iû-ko suat kāu tsi̍t-tiám, sap hôo-tsio-hún kah lua̍h-hún!",
+        "m": "叔叔，我要三串烤黑輪片，醬油膏刷厚一點，撒胡椒粉和辣椒粉！"
+      },
+      "tasting": {
+        "hz": "這間黑輪片烤甲邊仔微焦香脆，中心Q彈嚼勁十足，滿嘴全是旗魚的鮮甜！",
+        "tl": "Tsit king hê-lûn-phìnn khó kah pinn-á bî-tsiau phang-tshuè, tiong-sim khiū-tuânn tsiok-kìn tsa̍p-tsok, muá-tshuì tsuân sī kî-hî ê sian-tinn!",
+        "m": "這家黑輪片烤得邊緣微焦香脆，中心Q彈嚼勁十足，滿嘴都是旗魚的鮮甜！"
+      },
+      "lore": {
+        "hz": "坐渡輪到旗津海產街，吹海風食現烤黑輪片，是高雄人由細漢到大漢的美味記憶。",
+        "tl": "Tsē tōo-tsûn kàu Kî-tin hái-sán-ke, tshue hái-hong tsia̍h hiān-khó hê-lûn-phìnn, sī Ko-hiông-lâng uì sè-hàn kàu tuā-hàn ê bí-bī kì-ik.",
+        "m": "搭渡輪到旗津海產街，吹海風吃現烤黑輪片，是高雄人從小到大的美味記憶。"
+      }
+    },
+    "customizations": ["黑輪長條（包蛋）", "黑輪片（扁片香脆）", "刷甜醬", "加辣粉", "附清湯自取"]
+  },
+  {
+    "id": 21,
+    "hz": "岡山羊肉爐",
+    "tl": "Kong-san iûnn-bah-lôo",
+    "mandarin": "岡山羊肉（帶皮土羊肉與豆瓣醬名菜）",
+    "region": "south",
+    "city": "高雄市",
+    "icon": "🍲",
+    "audio_id": 13225,
+    "tags": ["岡山三寶", "本產土羊肉", "岡山辣豆瓣醬", "當歸藥膳溫補"],
+    "origin": "高雄岡山自古為牛羊交易集散地，結合在地特產「岡山辣豆瓣醬」，以帶皮台灣土羊肉、十餘種中藥材當歸燉煮成藥膳羊肉爐，肉質Q彈無騷味。",
+    "accents": {
+      "羊肉爐": "iûnn-bah-lôo",
+      "羊肉": "iûnn-bah"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一鍋當歸帶皮羊肉爐，閣叫一盤蔥爆羊肉，豆瓣醬提兩碟來！",
+        "tl": "Thâu-ke, tsi̍t ue tong-kui tuà-phuê iûnn-bah-lôo, koh kiò tsi̍t puânn tshang-pok iûnn-bah, tāu-pān-tsiùnn the̍h nn̄g tia̍p lâi!",
+        "m": "老闆，一鍋當歸帶皮羊肉爐，再點一盤蔥爆羊肉，豆瓣醬拿兩碟來！"
+      },
+      "tasting": {
+        "hz": "羊皮厚而𩚬透，羊肉燉甲軟嫩無臊味，沾岡山豆瓣醬入口，辛香回甘！",
+        "tl": "Iûnn-phuê kāu jî khiū thàu, iûnn-bah tūn kah nńg-nūn bô sò-bī, tsiam Kong-san tāu-pān-tsiùnn ji̍p-tshuì, sin-phang huê-kam!",
+        "m": "羊皮厚實又Q透，羊肉燉得軟嫩無騷味，沾岡山豆瓣醬入口，辛香回甘！"
+      },
+      "lore": {
+        "hz": "岡山有三寶：「羊肉、蜂蜜、豆瓣醬」，寒天親朋好友圍爐食羊肉爐最溫暖。",
+        "tl": "Kong-san ū sann pó: 'iûnn-bah, phang-bi̍t, tāu-pān-tsiùnn', kuânn-thinn tshin-pîng-hó-iú uî-lôo tsia̍h iûnn-bah-lôo siōng un-luán.",
+        "m": "岡山有三寶：「羊肉、蜂蜜、豆瓣醬」，冬天親朋好友圍爐吃羊肉爐最溫暖。"
+      }
+    },
+    "customizations": ["當歸藥膳湯底", "紅燒濃郁湯底", "全瘦肉", "三層帶皮肉", "加高麗菜凍豆腐"]
+  },
+  {
+    "id": 22,
+    "hz": "萬巒豬跤",
+    "tl": "Bān-luân ti-kha",
+    "mandarin": "屏東萬巒豬腳（中藥慢熬皮脆肉嫩紅燒豬蹄）",
+    "region": "south",
+    "city": "屏東縣",
+    "icon": "🍖",
+    "audio_id": 13206,
+    "tags": ["屏東客庄名吃", "中藥獨家滷汁", "皮脆肉嫩", "特製蒜蓉醬膏"],
+    "origin": "屏東萬巒鄉客家庄特色美食。創始於民國37年王安泉先生，採用新鮮豬前蹄，加入數十味天然中藥材與純豆油細火慢燉，再經冷卻使膠質緊縮，香Q有咬勁。",
+    "accents": {
+      "豬跤": "ti-kha (台語常稱)",
+      "豬腳": "ti-kiok (書面文讀)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家娘，切一隻前蹄豬跤，幫我切片分盒，蒜蓉沾醬包兩包！",
+        "tl": "Thâu-ke-niû, tshiat tsi̍t tsiah tsîng-tê ti-kha, pang guá tshiat-phìnn hun a̍p, suàn-iông tsiam-tsiùnn pau nn̄g pau!",
+        "m": "老闆娘，切一隻前蹄豬腳，幫我切片裝盒，蒜蓉沾醬包兩包！"
+      },
+      "tasting": {
+        "hz": "萬巒豬跤皮真脆真彈，蹄筋晶瑩入味，沾這包獨門蒜蓉膏，鹹甜又解膩！",
+        "tl": "Bān-luân ti-kha phuê tsin tshuè tsin tuànn, tê-kin tsing-îng ji̍p-bī, tsiam tsit pau to̍k-bûn suàn-iông-ko, kiâm-tinn koh kái-nī!",
+        "m": "萬巒豬腳皮非常脆彈，蹄筋晶瑩入味，沾這包獨門蒜蓉醬膏，鹹甜又解膩！"
+      },
+      "lore": {
+        "hz": "民國70年代經前總統蔣經國先生親自造訪品嘗，讓萬巒民和路豬腳街名揚國際。",
+        "tl": "Bîn-kok tshit-tsa̍p nî-tāi king tsiân tsóng-thóng Tsiúnn Keng-kok sian-sinn tshin-tsū tsō-hóng phín-sióng, niū Bān-luân Bîn-hô-lōo ti-kha-ke bîng-iông kok-tsè.",
+        "m": "民國70年代經蔣經國前總統親臨品嘗，讓萬巒民和路豬腳街聞名國際。"
+      }
+    },
+    "customizations": ["前蹄（筋多皮Q）", "後蹄（肉多飽滿）", "現切溫熱", "冰鎮放涼", "蒜蓉醬多"]
+  },
+  {
+    "id": 23,
+    "hz": "潮州冷熱冰",
+    "tl": "Tiô-tsiu líng-jia̍t-ping",
+    "mandarin": "潮州燒冷冰（熱圓仔花生芋頭淋刨冰）",
+    "region": "south",
+    "city": "屏東縣",
+    "icon": "🍧",
+    "audio_id": null,
+    "tags": ["潮州圓環", "冰火雙重天", "熱花生湯圓", "綿密芋頭"],
+    "origin": "創始於屏東潮州圓環。將剛煮好熱騰騰的大顆芝麻花生湯圓、手工小湯圓、綿密蜜芋頭、紅豆與綠豆饌盛在碗底，覆蓋一層細刨冰，淋上炒黑糖水。",
+    "accents": {
+      "冷熱冰": "líng-jia̍t-ping",
+      "燒冷冰": "sio-líng-ping (俗稱)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，來兩碗冷熱冰，黑糖水淋厚一點，記得交代莫攪勻！",
+        "tl": "Thâu-ke, lâi nn̄g uánn líng-jia̍t-ping, oo-thn̂g-tsuí lîm kāu tsi̍t-tiám, kì-tit kau-tāi mài kiáu-ûn!",
+        "m": "老闆，來兩碗冷熱冰，黑糖水多淋一點，記得交代不要攪拌均勻！"
+      },
+      "tasting": {
+        "hz": "熱騰騰的湯圓遇著冷刨冰，外皮瞬間變甲極其𩚬，咬開內底熱花生餡流出來！",
+        "tl": "Jia̍t-thíng-thíng ê thng-uân tú-tio̍h líng phàu-ping, guā-phuê sùn-kan piàn kah ke̍k-kî khiū, kā-khui lāi-té jia̍t hua-sing-ānn lâu--tshut-lâi!",
+        "m": "熱騰騰的湯圓碰上冷刨冰，外皮瞬間變得極為Q彈，咬開裡面熱花生流沙餡爆出！"
+      },
+      "lore": {
+        "hz": "食冷熱冰有絕招秘訣：「由下底挖上來食，千千萬萬不可攪拌」，才食得到冰火交疊的滋味。",
+        "tl": "Tsia̍h líng-jia̍t-ping ū tsua̍t-tsiau pì-tsiat: 'uì ē-té uát--tsióng-lâi tsia̍h, tshian-tshian-bān-bān put-khó kiáu-puān', tsiah tsia̍h-tit-tio̍h ping-hué kau-tia̍p ê tsu-bī.",
+        "m": "吃冷熱冰有絕招秘訣：「從底下挖上來吃，千千萬萬不要攪拌」，才能享受到冰火交融的層次。"
+      }
+    },
+    "customizations": ["大湯圓加量", "蜜芋頭加量", "甜度減半", "黑糖多", "內用現吃"]
+  },
+  {
+    "id": 24,
+    "hz": "宜蘭鴨賞",
+    "tl": "Gî-lân ah-siúnn",
+    "mandarin": "宜蘭鴨賞（甘蔗煙燻鹹香鴨肉乾）",
+    "region": "east_islands",
+    "city": "宜蘭縣",
+    "icon": "🦆",
+    "audio_id": 12385,
+    "tags": ["蘭陽平原", "甘蔗煙燻", "名產伴手禮", "涼拌蒜苗白醋"],
+    "origin": "宜蘭多雨多水塘，自古盛產水鴨。古法將全鴨剖開塗抹粗鹽與香料醃漬，置於竹架上用紅甘蔗皮慢火煙燻至金黃色澤，甘蔗糖香滲透鴨肉肌理。",
+    "accents": {
+      "鴨賞": "ah-siúnn (宜蘭偏漳腔)",
+      "泉州腔": "ah-sióng"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，我要三包真空包裝的甘蔗煙燻鴨賞，順便問有調味好的涼拌小菜無？",
+        "tl": "Thâu-ke, guá ài sann pau tsin-khong pau-tsong ê kam-tsià ian-hun ah-siúnn, sūn-piān mn̄g ū tiâu-bī hó ê liâng-phuānn sió-tshài--bô?",
+        "m": "老闆，我要三包真空包裝的甘蔗煙燻鴨賞，順便問有調味好的涼拌小菜嗎？"
+      },
+      "tasting": {
+        "hz": "鴨賞切薄片，配大蒜苗、香油佮白醋拌勻，鹹香甘甜，帶有濃濃的甘蔗煙燻香！",
+        "tl": "Ah-siúnn tshiat po̍h-phìnn, phuè tuā-suànn-bâu, hiang-iû kah pe̍h-tshòo phuānn-ûn, kiâm-phang kam-tinn, tuà ū lông-lông ê kam-tsià ian-hun-phang!",
+        "m": "鴨賞切成薄片，配上大蒜苗、香油和白醋拌勻，鹹香甘甜，帶有濃郁甘蔗煙燻香氣！"
+      },
+      "lore": {
+        "hz": "古早宜蘭農村將珍貴的燻鴨作為「犒賞」或致贈親友的高級贈禮，故得名「鴨賞」。",
+        "tl": "Kóo-tsá Gî-lân lông-tshuan tsiong tin-kuì ê hun-ah tsok-uî 'khò-siúnn' ia̍h tì-tsàng tshin-iú ê ko-kip tsìng-lé, kòo tit-miâ 'ah-siúnn'.",
+        "m": "以前宜蘭農村將珍貴的燻鴨當作「犒賞」或饋贈親友的高級伴手禮，因而得名「鴨賞」。"
+      }
+    },
+    "customizations": ["真空原味鴨腿", "涼拌現食（蒜苗白醋）", "甘蔗原味", "黑胡椒風味"]
+  },
+  {
+    "id": 25,
+    "hz": "糕渣",
+    "tl": "ko-tsa",
+    "mandarin": "宜蘭糕渣（外冷內滾燙雞肉高湯油炸點心）",
+    "region": "east_islands",
+    "city": "宜蘭縣",
+    "icon": "🧈",
+    "audio_id": null,
+    "tags": ["國宴名菜", "蘭陽特色", "外冷內熱", "雞高湯蝦漿"],
+    "origin": "宜蘭傳統國宴名菜，代表宜蘭人「外表沉靜、內心熱情」的性格。將老母雞、赤肉與蝦仁熬成高湯，加入玉米粉與太白粉攪拌濃縮放涼成凍，切塊裹麵粉油炸。",
+    "accents": {
+      "糕渣": "ko-tsa (宜蘭腔發音標準)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿姊，來一份現炸糕渣，胡椒鹽撒多一點，小弟你食時要小心燒！",
+        "tl": "A-tsí, lâi tsi̍t hūn hiān-tsà ko-tsa, hôo-tsio-iâm sap tsē tsi̍t-tiám, sió-tī lí tsia̍h sî ài sió-sim sio!",
+        "m": "大姐，來一份現炸糕渣，胡椒鹽多灑一點，小弟你吃的時候要小心燙！"
+      },
+      "tasting": {
+        "hz": "糕渣表面看起來無煙無熱，咬開內底高湯滾燙燙化在舌頭頂，鮮濃無比！",
+        "tl": "Ko-tsa piáu-bīn khuànn--khí-lâi bô ian bô jia̍t, kā-khui lāi-té ko-thng kún-thǹg-thǹg huà tsai tsih-thâu tíng, sian-lông bô-pí!",
+        "m": "糕渣表面看起來不冒煙不燙，咬開裡面高湯滾燙在舌尖化開，鮮美無比！"
+      },
+      "lore": {
+        "hz": "俗話形容宜蘭人性格就親像糕渣仝款，外表平靜溫和，但內心如滾水般赤誠熱烈。",
+        "tl": "Sio̍k-uē hîng-iông Gî-lân-lâng sìng-kik tiō tshin-tshiūnn ko-tsa kāng-khuán, guā-piáu pîng-tsīng un-hô, tān lāi-sim jû kún-tsuí puann tshiah-sîng jia̍t-lia̍t.",
+        "m": "俗話形容宜蘭人的性格就如糕渣一樣，外表平靜溫和，但內心像滾水般赤誠熱烈。"
+      }
+    },
+    "customizations": ["現炸熱食", "胡椒鹽加重", "配沾蒜蓉醬", "加梅子粉"]
+  },
+  {
+    "id": 26,
+    "hz": "花蓮扁食",
+    "tl": "Hua-liân pián-si̍t",
+    "mandarin": "花蓮扁食（皮薄如紙後腿純肉餛飩）",
+    "region": "east_islands",
+    "city": "花蓮縣",
+    "icon": "🥟",
+    "audio_id": 12472,
+    "tags": ["後山老味道", "皮薄如紗", "純黑豬肉餡", "大骨芹菜湯"],
+    "origin": "源於民國時期福州傳統手藝傳入花蓮（戴記、液香扁食等老店聞名）。純手工擀製薄如絲絹的麵皮，包覆每天新鮮溫體黑豬後腿肉餡，大骨清湯點綴芹菜珠與油蔥酥。",
+    "accents": {
+      "扁食": "pián-si̍t (全台台語通稱餛飩)",
+      "餛飩": "hún-tûn (華語借讀較少用)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，一碗大碗扁食湯，油蔥酥多落一點，胡椒粉少許，內用！",
+        "tl": "Thâu-ke, tsi̍t uánn tuā-uánn pián-si̍t-thng, iû-tshang-soo tsē lo̍h tsi̍t-tiám, hôo-tsio-hún sió-hí, lāi-iōng!",
+        "m": "老闆，一大碗扁食湯，油蔥酥多放一點，胡椒粉少許，內用！"
+      },
+      "tasting": {
+        "hz": "扁食皮薄如紗、滑順入喉，裡面的肉餡彈牙扎實，咬落去全是純豬肉的清甜！",
+        "tl": "Pián-si̍t phuê po̍h jû se, ku̍t-sūn ji̍p âu, lí-bīn ê bah-ānn tuânn-gê tsa̍t-si̍t, kā--lo̍h-khì tsuân sī sûn ti-bah ê tshing-tinn!",
+        "m": "扁食皮薄如薄紗、滑順入喉，裡面的肉餡扎實彈牙，咬下去全是純豬肉的鮮甜！"
+      },
+      "lore": {
+        "hz": "蔣經國先生多次來到花蓮下榻品嘗這碗扁食，讓花蓮扁食成為後山觀光最具指標的排隊名吃。",
+        "tl": "Tsiúnn Keng-kok sian-sinn to-tshù lâi kàu Hua-liân hā-thap phín-sióng tsit uánn pián-si̍t, niū Hua-liân pián-si̍t sîng-uî āu-suann kuan-kong siōng kī tsí-phiau ê pâi-tuī bîng-tsia̍h.",
+        "m": "蔣經國先生多次來到花蓮下榻品嘗這碗扁食，讓花蓮扁食成為後山觀光最具代表性的排隊名吃。"
+      }
+    },
+    "customizations": ["加辣油", "加烏醋", "芹菜珠多", "外帶生扁食盒裝"]
+  },
+  {
+    "id": 27,
+    "hz": "台東米苔目",
+    "tl": "Tâi-tang bí-thai-ba̍k",
+    "mandarin": "台東米苔目（古早米條搭自炒柴魚片與肉燥）",
+    "region": "east_islands",
+    "city": "台東縣",
+    "icon": "🍜",
+    "audio_id": null,
+    "tags": ["台東市區", "在來米米苔目", "大片自刨柴魚", "肉燥烏醋"],
+    "origin": "純在來米磨漿蒸擠而成的米苔目，質地Q滑富米香。台東在地特色是湯麵或乾麵上必鋪滿一大把成功漁港自刨的新鮮柴魚片，熱氣讓柴魚片在碗中翩翩跳舞。",
+    "accents": {
+      "米苔目": "bí-thai-ba̍k",
+      "米篩目": "bí-thai-ba̍k (漢字正寫)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿姐，一碗乾的米苔目，柴魚片愛多放，添一粒滷蛋佮一塊油豆腐！",
+        "tl": "A-tsé, tsi̍t uánn kuann ê bí-thai-ba̍k, tshâ-hî-phìnn ài tsē pàng, thiam tsi̍t lia̍p lóo-nn̄g kah tsi̍t tè iû-tāu-hū!",
+        "m": "大姐，一碗乾米苔目，柴魚片要多放，加一顆滷蛋和一塊油豆腐！"
+      },
+      "tasting": {
+        "hz": "米苔目食起來真滑溜軟Q，柴魚片的煙燻海味融入肉燥香，攪勻入口真順喙！",
+        "tl": "Bí-thai-ba̍k tsia̍h--khí-lâi tsin ku̍t-liu nńg-khiū, tshâ-hî-phìnn ê ian-hun hái-bī ji̍p bah-sò phang, kiáu-ûn ji̍p-tshuì tsin sūn-tshuì!",
+        "m": "米苔目吃起來非常滑順Q軟，柴魚片的煙燻海味融入肉燥香，拌勻入口非常順口！"
+      },
+      "lore": {
+        "hz": "台東人吃米苔目必加特製「烏醋佮辣椒醬」，酸甘微辣與柴魚香結合，是在地早點經典標配。",
+        "tl": "Tâi-tang-lâng tsia̍h bí-thai-ba̍k pit ka ti̍k-tsè 'oo-tshòo kah lua̍h-tsiùnn', sng-kam bî-lua̍h kah tshâ-hî phang kiat-ha̍p, sī tsāi-tē tsá-tiám king-tián phiau-phuè.",
+        "m": "台東人吃米苔目必加特製烏醋與辣椒醬，酸甜微辣與柴魚香結合，是在地早餐的經典搭配。"
+      }
+    },
+    "customizations": ["乾拌（淋肉燥柴魚）", "大骨清湯", "加滷蛋", "加貢丸", "柴魚片加量"]
+  },
+  {
+    "id": 28,
+    "hz": "黑糖糕",
+    "tl": "oo-thn̂g-kē",
+    "mandarin": "澎湖黑糖糕（黑糖發糕孔洞鬆軟）",
+    "region": "east_islands",
+    "city": "澎湖縣",
+    "icon": "🥮",
+    "audio_id": 12368,
+    "tags": ["菊島伴手禮", "純黑糖發酵", "鬆軟孔洞", "白芝麻芳香"],
+    "origin": "源自日本沖繩琉球傳統黑糖糕點，日治時期由沖繩師傅丸八引進馬公發揚光大。以麵粉、在地黑糖、地瓜粉發酵蒸製而成，氣孔細密均勻，表面撒滿白芝麻。",
+    "accents": {
+      "黑糖糕": "oo-thn̂g-kē (偏泉海口腔)",
+      "發糕": "huat-kué / huat-kē"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，這黑糖糕是透早現炊做好的無？我要五盒帶轉去台灣送朋友！",
+        "tl": "Thâu-ke, tsit oo-thn̂g-kē sī thàu-tsá hiān tshe tsò hó--ê--bô? Guá ài gōo a̍p tuà tńg-khì Tâi-uân sàng pîng-iú!",
+        "m": "老闆，這黑糖糕是清晨剛蒸好的嗎？我要五盒帶回台灣送朋友！"
+      },
+      "tasting": {
+        "hz": "黑糖糕質地真鬆軟彈牙，黑糖甘甜香氣濃郁，咬起來完全袂黐齒！",
+        "tl": "Oo-thn̂g-kē tsit-tē tsin sang-nńg tuànn-gê, oo-thn̂g kam-tinn hiang-khì lông-ji̍k, kā--khí-lâi uân-tsuân bē tshî-khí!",
+        "m": "黑糖糕質地非常鬆軟Q彈，黑糖甘醇香氣濃郁，咬起來完全不黏牙！"
+      },
+      "lore": {
+        "hz": "黑糖糕以前是澎湖人拜拜廟會祭祖的供品，象徵發財長發，如今演變為全台灣最具人氣的澎湖伴手禮。",
+        "tl": "Oo-thn̂g-kē í-tsîng sī Phênn-ôo-lâng pài-pài biō-huē tsè-tsóo ê kíng-phín, siōng-tsing huat-tsâi tiông huat, jû-kim ián-piàn uî tsuân Tâi-uân siōng kī jîn-khì ê Phênn-ôo phuànn-tshiú-lé.",
+        "m": "黑糖糕以前是澎湖人祭祀廟會的祭品，象徵發財長順，如今演變為全台最知名的澎湖伴手禮。"
+      }
+    },
+    "customizations": ["現炊當日盒裝", "真空包裝（保鮮期較長）", "切片散裝", "紅豆黑糖糕"]
+  },
+  {
+    "id": 29,
+    "hz": "花枝丸",
+    "tl": "hue-tsi-uân",
+    "mandarin": "澎湖花枝丸（滿滿新鮮花枝肉塊炸丸）",
+    "region": "east_islands",
+    "city": "澎湖縣",
+    "icon": "🍡",
+    "audio_id": 1408,
+    "tags": ["澎湖海味", "野生大花枝", "塊塊肉感", "炸得金黃香酥"],
+    "origin": "澎湖周邊海域盛產大型新鮮野生虎斑烏賊（花枝）。澎湖花枝丸特色在於真材實料，不摻雜多餘粉漿，內餡切入滿滿大顆花枝肉塊，油炸後金黃噴香咬感扎實。",
+    "accents": {
+      "花枝丸": "hue-tsi-uân (澎湖海口腔普遍)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "頭家，現炸花枝丸來兩串，胡椒鹽多撒一點，買兩包冷凍花枝丸低溫宅配！",
+        "tl": "Thâu-ke, hiān-tsà hue-tsi-uân lâi nn̄g tshuàn, hôo-tsio-iâm tsē sap tsi̍t-tiám, bé nn̄g pau líng-tòng hue-tsi-uân te-un the̍k-phuè!",
+        "m": "老闆，現炸花枝丸來兩串，胡椒鹽多灑一點，再買兩包冷凍花枝丸低溫宅配！"
+      },
+      "tasting": {
+        "hz": "炸出爐的花枝丸外皮金黃酥脆，每一口攏咬得到大塊的花枝肉，脆彈海味十足！",
+        "tl": "Tsà tshut-lôo ê hue-tsi-uân guā-phuê kim-n̂g soo-tshuè, muí tsi̍t-tshuì lóng kā-tit-tio̍h tuā tè ê hue-tsi-bah, tshuè-tuànn hái-bī tsa̍p-tsok!",
+        "m": "炸出爐的花枝丸外皮金黃酥脆，每一口都咬得到大塊的花枝肉，爽脆彈牙海味十足！"
+      },
+      "lore": {
+        "hz": "澎湖海風鹹鹹，海水鹽度高，捕撈上岸的花枝肉質特別厚實甜美，做出來的花枝丸無人能比。",
+        "tl": "Phênn-ôo hái-hong kiâm-kiâm, hái-tsuí iâm-tōo kuân, pōo-lâu tsiūnn-huānn ê hue-tsi bah-tsit ti̍k-pia̍t kāu-si̍t tinn-bí, tsò--tshut-lâi ê hue-tsi-uân bô-lâng lîng pí.",
+        "m": "澎湖海風微鹹，海水鹽度高，捕撈上岸的花枝肉質特別厚實鮮甜，做出的花枝丸無可匹敵。"
+      }
+    },
+    "customizations": ["現炸熱串", "胡椒鹽加重", "冷凍生丸一斤袋裝", "花枝蝦排"]
+  },
+  {
+    "id": 30,
+    "hz": "金門蚵嗲",
+    "tl": "Kim-mn̂g ô-te",
+    "mandarin": "金門石蚵蚵嗲（海石蚵酥炸油粿）",
+    "region": "east_islands",
+    "city": "金門縣",
+    "icon": "🥟",
+    "audio_id": 2059,
+    "tags": ["金門戰地", "野生石蚵", "高麗菜大蒜餡", "現炸酥脆"],
+    "origin": "金門傳統名小吃。金門潮間帶花崗岩「石蚵」體型雖精巧但肉質極其緊實無腥味。特製圓形鐵杓先抹黃豆米漿，鋪滿石蚵、高麗菜、芹菜碎，覆漿後沉入油鍋炸至金黃酥脆。",
+    "accents": {
+      "蚵嗲": "ô-te / ô-tē (金門泉州音偏高)",
+      "台灣本島多稱": "ô-te (蚵嗲)"
+    },
+    "sentences": {
+      "ordering": {
+        "hz": "阿婆，炸兩粒蚵嗲，愛加甜辣醬，包外帶，剛炸出爐的熱熱最好！",
+        "tl": "A-phô, tsà nn̄g lia̍p ô-te, ài ka tinn-lua̍h-tsiùnn, pau-tńg-khì, kng tsà tshut-lôo ê jia̍t-jia̍t siōng hó!",
+        "m": "阿婆，炸兩顆蚵嗲，要加甜辣醬，外帶，剛炸出爐熱騰騰的最棒！"
+      },
+      "tasting": {
+        "hz": "蚵嗲外殼香酥咬落去酥脆脆，石蚵粒粒結實鮮甘，蔬菜爽脆完全無油膩！",
+        "tl": "Ô-te guā-khak phang-soo kā--lo̍h-khì soo-tshuè-tshuè, tsio̍h-ô lia̍p-lia̍p kiat-si̍t sian-kam, tshuk-tshài sóng-tshuè uân-tsuân bô iû-nī!",
+        "m": "蚵嗲外殼香脆咬下去酥脆無比，石蚵粒粒結實鮮甜，蔬菜爽脆完全不油膩！"
+      },
+      "lore": {
+        "hz": "金門石蚵生長在四百年歷史的花崗石條上，經受海浪潮水拍打洗禮，肉質比一般養殖蚵更具嚼勁鮮美。",
+        "tl": "Kim-mn̂g tsio̍h-ô sing-tióng tsai sì-pah nî li̍k-sú ê hue-kong-tsio̍h-tiâu tíng, king-siū hái-lōng tiâu-tsuí phik-tánn sé-lé, bah-tsit pí it-puann ióng-si̍t ô kàng kī tsiok-kìn sian-bí.",
+        "m": "金門石蚵生長在四百年歷史的花崗石條上，受海浪潮汐拍打洗禮，肉質比一般浮棚蚵更具嚼勁與鮮甜。"
+      }
+    },
+    "customizations": ["淋金門甜辣醬", "加特製蒜蓉油膏", "加辣粉", "現炸熱吃"]
+  }
+]

@@ -136,6 +136,8 @@ class App {
       if (window.levelMap && window.levelMap.currentViewMode === 'map') {
         window.levelMap.renderMap();
       }
+    } else if (tab === 'snacks') {
+      window.snackMap?.render();
     } else if (tab === 'bookmarks') {
       this.renderBookmarks();
     } else if (tab === 'mandarin') {
