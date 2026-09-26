@@ -140,6 +140,9 @@
   - 快取版本升級至 `lan-taigi-static-v4`，自動於啟用時清除所有過期舊靜態快取。
   - 針對 App Shell 核心資產（HTML、CSS、JS）實施**「Network-First with Cache Fallback」**策略：使用者在線時永遠取得伺服器最新發布之樣式與邏輯，離線時無縫回退至本機快取，兼顧「100% 離線可用」與「在線發布即時生效」。
   - 在 `index.html` 之所有 CSS 與 JS 載入標籤附加版本指紋綴詞 `?v=1.2.1`，全方位防止瀏覽器本地硬體暫存舊版樣式。
+* **📑 軟體架構與詳細設計規格書正式發布 ([`SDD.md`](SDD.md))**：
+  - 依照國際企業級標準編撰 9 大章節完整設計規格書，收錄多幅 Mermaid 視覺化圖表（高階系統分層圖、Service Worker 快取請求狀態機、IndexedDB v2 ER 關聯圖、Web Audio DSP 聲學訊號處理管線、SM-2 調度序列圖）。
+  - 詳細收錄 TypeScript 風格各模組介面規範、離線語料庫 Schema、七大調值聲學特徵矩陣、系統韌性防禦機制、雙軌授權法規對應與 FCP/TTI 效能基準數據。
 
 ---
 

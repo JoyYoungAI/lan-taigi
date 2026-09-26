@@ -1,7 +1,8 @@
 # 咱的台語 (Lán ê Tâi-gí)
 ### 100% 離線臺灣台語教學、在地小吃點餐例句庫、闖關地圖、SM-2間隔複習與教育部辭典 PWA 應用程式
 
-[![App Version](https://img.shields.io/badge/App%20Version-v1.2.0-1b5e20.svg)](#-專案版本與更新歷程)
+[![App Version](https://img.shields.io/badge/App%20Version-v1.2.1-1b5e20.svg)](#-專案版本與更新歷程)
+[![SDD Document](https://img.shields.io/badge/Architecture-SDD%20v1.2.1-blueviolet.svg)](SDD.md)
 [![Dictionary Data](https://img.shields.io/badge/MOE%20Data-2026--09%20Latest-2e7d32.svg)](https://sutian.moe.edu.tw/)
 [![Software License](https://img.shields.io/badge/Software%20License-MIT-blue.svg)](LICENSE)
 [![Dictionary License](https://img.shields.io/badge/Dictionary%20License-CC%20BY--ND%203.0%20TW-orange.svg)](https://creativecommons.org/licenses/by-nd/3.0/tw/)
@@ -10,7 +11,9 @@
 
 > 基於中華民國教育部「[臺灣台語常用詞辭典](https://sutian.moe.edu.tw/)」開放資料（相關資源專區）精心研發的現代化全功能台語學習系統與離線辭典。
 
-**🌐 線上體驗與直接安裝 (Live Demo)**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)
+* **🌐 線上體驗與直接安裝 (Live Demo)**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)
+* **📑 系統架構與詳細設計規格書 (SDD)**：[SDD.md](SDD.md)
+* **📋 開發工作紀錄與歷程**：[WORKLOG.md](WORKLOG.md)
 
 
 ---
@@ -214,6 +217,8 @@ npx serve -l 8080
 │   └── surnames.json           # 2,473 筆百家姓發音
 ├── audio/                      # 100 筆隨附的核心教學真人發音 MP3
 ├── icons/                      # PWA 各尺寸圖示 (SVG, 192x192, 512x512)
+├── SDD.md                      # 系統架構與詳細設計規格書 (System Design Document)
+├── WORKLOG.md                  # 專案工作進度與歷程紀錄
 └── README.md                   # 專案完整技術文檔
 ```
 
@@ -224,9 +229,13 @@ npx serve -l 8080
 本專案遵循國際開源與政府開放資料雙軌授權規範，原始碼與語料各自依循其專屬授權條款釋出：
 
 ### 📌 版本資訊 (Version Release Info)
-* **應用程式版本 (App Version)**：`v1.2.0` (Build 2026.09)
-* **最新重大功能發布**：
-  - 🍜 **台灣特色小吃地圖與夜市客製點餐例句庫**（30 種全台經典美食、三維例句、點餐產生器）
+* **應用程式版本 (App Version)**：`v1.2.1` (Build 2026.09)
+* **最新重大功能與架構發布**：
+  - 📑 **正式發布系統架構與詳細設計規格書**（收錄於 [`SDD.md`](SDD.md)）
+  - 🛡️ **系統韌性防禦機制**（IndexedDB v1->v2 平滑升級防禦、闖關 1-1 節點無條件保底解鎖、白屏容錯）
+  - 🔤 **臺羅特殊結合符號字型相容鏈**（完整支援第 8 聲調垂直結合符號 `U+030D` 如 `Ji̍t`，根除豆腐缺字）
+  - ⚡ **Service Worker 快取策略重構**（App Shell Network-First 網路優先、版本指紋 `?v=1.2.1` 結合 `lan-taigi-static-v4`）
+  - 🍜 **台灣特色小吃地圖與夜市客製點餐例句庫**（30 種全台經典美食、三大維度例句、點餐產生器）
   - 🗺️ **Duolingo 風格闖關地圖**（40 個闖關節點、星級獎章與進度解鎖）
   - 🧠 **SuperMemo SM-2 間隔重複記憶演算法**（每日儀表板、艾賓浩斯抗遺忘滾動複習）
   - 🎤 **100% 離線 Web Audio 音高調型評分器**（F0 時域自相關、台語七聲調標準調型比對）
