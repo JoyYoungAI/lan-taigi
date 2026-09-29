@@ -451,12 +451,15 @@ class SnackMapManager {
         </div>
 
         <!-- Action Footer -->
-        <div class="snack-modal-actions">
+        <div class="snack-modal-actions" style="flex-wrap:wrap; gap:0.5rem;">
+          <button class="btn btn-outline" onclick="window.speechEvaluator.openChallengeModal({ id: 'snack-${snack.id}', hz: '${snack.hz}', tl: '${snack.tl}', def: '${snack.city}在地小吃：${snack.mandarin}' })">
+            🎤 口說挑戰
+          </button>
           <button class="btn btn-outline" onclick="window.app.toggleBookmark(${snack.id || 9999}, '${snack.hz}', '${snack.tl}', '${snack.mandarin}')">
-            ⭐ 收藏至生詞本
+            ⭐ 收藏生詞
           </button>
           <button class="btn btn-primary" onclick="window.snackMap.registerToSRS(${snack.id})">
-            🧠 納入 SM-2 每日間隔複習
+            🧠 納入 SM-2 複習
           </button>
           <button class="btn btn-outline" onclick="window.snackMap.applyToBuilder(${snack.id})">
             🏮 帶入點餐產生器

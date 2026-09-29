@@ -213,6 +213,13 @@ class DictionaryManager {
     // Add to history
     window.storage.addHistory({ id: entry.id, hz: entry.hz, tl: entry.tl });
 
+    // Check if already in SRS
+    let isSRS = false;
+    try {
+      const srsItem = await window.storage.getSRSItem(String(entry.id));
+      if (srsItem) isSRS = true;
+    } catch (e) {}
+
     let html = `
       <div class="modal-word-header">
         <div class="modal-word-title">
@@ -224,8 +231,14 @@ class DictionaryManager {
             <span class="audio-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></span>
             播放音檔
           </button>
-          <button class="btn btn-outline" onclick="window.app.toggleBookmark(${entry.id}, '${entry.hz}', '${entry.tl}', '${entry.s[0]?.d || ''}')">
-            收藏詞目
+          <button id="dict-srs-btn-${entry.id}" class="btn btn-outline ${isSRS ? 'btn-active' : ''}" onclick="window.dictManager.toggleSRSWord(${entry.id})">
+            ${isSRS ? '✓ 已在複習庫' : '📥 加入 SM-2 複習'}
+          </button>
+          <button class="btn btn-outline" onclick="window.dictManager.challengeWordSpeech(${entry.id})">
+            🎤 口說挑戰
+          </button>
+          <button class="btn btn-outline" onclick="window.app.toggleBookmark(${entry.id}, '${entry.hz}', '${entry.tl}', '${entry.s && entry.s[0] ? entry.s[0].d : ''}')">
+            ⭐ 收藏詞目
           </button>
         </div>
       </div>
@@ -390,6 +403,46 @@ class DictionaryManager {
       </div>
       ${list.length > 150 ? `<p class="table-note">共 ${list.length} 筆姓氏，僅顯示前 150 筆。</p>` : ''}
     `;
+  }
+
+  // --- SM-2 & Speech Challenge Integration ---
+  async toggleSRSWord(id) {
+    const entry = await this.getDetails(id);
+    if (!entry || !window.srsEngine) return;
+    const btn = document.getElementById(`dict-srs-btn-${id}`);
+
+    const existing = await window.storage.getSRSItem(String(id));
+    if (existing) {
+      window.app?.showToast(`「${entry.hz}」已在您的 SM-2 複習排程中（下次複習：${new Date(existing.nextReviewDate).toLocaleDateString()}）`, 'info');
+      return;
+    }
+
+    await window.srsEngine.registerVocabList([{
+      id: entry.id,
+      hz: entry.hz,
+      tl: entry.tl,
+      def: entry.s && entry.s[0] ? entry.s[0].d : '',
+      pos: entry.s && entry.s[0] ? entry.s[0].p : '',
+      audio: entry.id
+    }]);
+
+    if (btn) {
+      btn.textContent = '✓ 已在複習庫';
+      btn.classList.add('btn-active');
+    }
+    window.app?.showToast(`已成功將「${entry.hz}」加入每日 SM-2 間隔複習！`, 'success');
+  }
+
+  async challengeWordSpeech(id) {
+    const entry = await this.getDetails(id);
+    if (!entry || !window.speechEvaluator) return;
+    window.speechEvaluator.openChallengeModal({
+      id: entry.id,
+      hz: entry.hz,
+      tl: entry.tl,
+      audio: entry.id,
+      def: entry.s && entry.s[0] ? `${entry.s[0].p ? '[' + entry.s[0].p + '] ' : ''}${entry.s[0].d}` : ''
+    });
   }
 }
 

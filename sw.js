@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lan-taigi-static-v4';
+const CACHE_NAME = 'lan-taigi-static-v5';
 const AUDIO_CACHE = 'lan-taigi-audio-v1';
 
 const PRECACHE_ASSETS = [

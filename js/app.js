@@ -230,6 +230,21 @@ class App {
     }
 
     container.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+        <div>
+          <h3 style="margin:0; color:var(--primary);">⭐ 我的生詞收藏庫 (共 ${list.length} 詞)</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.2rem 0 0;">隨時點擊進行口說挑戰，或批次匯入 SM-2 抗遺忘循環</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm" onclick="window.app.addAllBookmarksToSRS()">
+            📥 全部加入 SM-2 複習
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="window.srsEngine.startReviewSession()">
+            🚀 啟動今日複習
+          </button>
+        </div>
+      </div>
+
       <div class="bookmarks-grid">
         ${list.map(b => `
           <div class="bookmark-card" onclick="window.dictManager.showWordModal(${b.id})">
@@ -241,16 +256,37 @@ class App {
             </div>
             <div class="bm-tl">${b.tl}</div>
             <div class="bm-def">${b.def || ''}</div>
-            <div class="bm-actions">
+            <div class="bm-actions" style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.6rem;">
               <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); window.audioManager.playWord(${b.id}, '${b.hz}', this)">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
                 發音
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); window.speechEvaluator.openChallengeModal({ id: ${b.id}, hz: '${b.hz}', tl: '${b.tl}', def: '${b.def || ''}', audio: ${b.id} })">
+                🎤 挑戰
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); window.dictManager.toggleSRSWord(${b.id})">
+                📥 複習
               </button>
             </div>
           </div>
         `).join('')}
       </div>
     `;
+  }
+
+  async addAllBookmarksToSRS() {
+    const list = await window.storage.getBookmarks();
+    if (!list || list.length === 0 || !window.srsEngine) return;
+    const vocabList = list.map(b => ({
+      id: b.id,
+      hz: b.hz,
+      tl: b.tl,
+      def: b.def || '',
+      audio: b.id
+    }));
+    await window.srsEngine.registerVocabList(vocabList);
+    this.showToast(`已成功將全部 ${vocabList.length} 個收藏生詞加入 SM-2 複習排程！`, 'success');
+    window.levelMap?.renderDashboard();
   }
 
   // --- Dialects Comparison Tab ---

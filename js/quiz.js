@@ -262,22 +262,57 @@ class QuizManager {
         question: this.currentQuestion.question,
         correct: this.currentQuestion.correctAnswer,
         userAnswer: selected,
-        hz: this.currentQuestion.correctItem.hz || '',
-        tl: this.currentQuestion.correctItem.tl || ''
+        hz: this.currentQuestion.correctItem?.hz || '',
+        tl: this.currentQuestion.correctItem?.tl || ''
       });
+
+      // Auto-register to SM-2 spaced repetition queue
+      if (window.srsEngine && this.currentQuestion.correctItem && this.currentQuestion.type !== 'tone_quiz') {
+        const ci = this.currentQuestion.correctItem;
+        const wid = ci.id ? String(ci.id) : `quiz-${ci.hz}`;
+        window.srsEngine.registerVocabList([{
+          id: wid,
+          hz: ci.hz,
+          tl: ci.tl || '',
+          def: ci.def || ci.m || this.currentQuestion.question,
+          audio: ci.audio || ci.id || wid
+        }]);
+      }
 
       if (feedbackBox) {
         feedbackBox.className = 'quiz-feedback error';
+        const item = this.currentQuestion.correctItem;
+        const canChallenge = item && item.hz && item.tl && this.currentQuestion.type !== 'tone_quiz';
+
         feedbackBox.innerHTML = `
           <div class="fb-icon">❌ 差一點！正確答案是：<strong>${this.currentQuestion.correctAnswer}</strong></div>
-          <p class="fb-tip">已為您收入錯題複習本。</p>
-          <button class="btn btn-primary next-q-btn" onclick="window.quizManager.nextQuestion()">下一題 ➔</button>
+          <p class="fb-tip">💡 已自動為您收入「錯題複習本」與「SM-2 間隔複習排程」，將依抗遺忘曲線自動複習！</p>
+          <div class="fb-actions" style="margin-top:0.75rem; display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
+            ${canChallenge ? `
+              <button class="btn btn-outline btn-sm" onclick="window.quizManager.launchSpeechChallenge()">
+                🎤 立即口說發音練習
+              </button>
+            ` : ''}
+            <button class="btn btn-primary btn-sm next-q-btn" onclick="window.quizManager.nextQuestion()">下一題 ➔</button>
+          </div>
         `;
         feedbackBox.style.display = 'block';
       }
     }
 
     this.updateStatsDisplay();
+  }
+
+  launchSpeechChallenge() {
+    const item = this.currentQuestion?.correctItem;
+    if (!item || !window.speechEvaluator) return;
+    window.speechEvaluator.openChallengeModal({
+      id: item.id || item.hz,
+      hz: item.hz,
+      tl: item.tl || '',
+      audio: item.audio || item.id,
+      def: item.def || item.m || this.currentQuestion.question
+    });
   }
 
   // Synthesize pleasant sound effect with Web Audio API

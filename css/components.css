@@ -1749,6 +1749,18 @@
   max-width: 580px !important;
 }
 
+.speech-modal-card {
+  max-width: 540px !important;
+  width: 95%;
+}
+
+.btn.btn-active {
+  background-color: var(--primary-bg) !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  font-weight: 700;
+}
+
 .srs-header-bar {
   display: flex;
   justify-content: space-between;

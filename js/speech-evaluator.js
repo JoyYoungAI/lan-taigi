@@ -347,6 +347,214 @@ class SpeechEvaluator {
     const a = new Audio(this.userAudioUrl);
     a.play();
   }
+
+  // --- Tone Extraction from Tai-lo ---
+  extractPrimaryTone(tl) {
+    if (!tl) return 1;
+    tl = String(tl).toLowerCase().trim();
+
+    // Check digit at end (e.g. "tai5", "gi2")
+    const digitMatch = tl.match(/([1-8])$/);
+    if (digitMatch) {
+      const d = parseInt(digitMatch[1], 10);
+      return (d === 6) ? 2 : d;
+    }
+
+    // Tone 8: vertical line above combining U+030D or precomposed
+    if (tl.includes('\u030d') || tl.includes('̍') || /[aeioumn]̍/.test(tl)) return 8;
+
+    // Tone 2: acute accent
+    if (/[áéíóúḿń]/.test(tl) || tl.includes('\u0301')) return 2;
+
+    // Tone 3: grave accent
+    if (/[àèìòù]/.test(tl) || tl.includes('\u0300')) return 3;
+
+    // Tone 5: circumflex accent
+    if (/[âêîôû]/.test(tl) || tl.includes('\u0302')) return 5;
+
+    // Tone 7: macron
+    if (/[āēīōū]/.test(tl) || tl.includes('\u0304')) return 7;
+
+    // Checked syllables (Tone 4 vs Tone 8):
+    const words = tl.split(/[-–\s]+/);
+    const lastSyllable = words[words.length - 1];
+    if (/[ptkh]$/.test(lastSyllable)) {
+      return 4;
+    }
+
+    return 1;
+  }
+
+  getToneName(tone) {
+    const map = {
+      1: '第 1 調 (55 高平)',
+      2: '第 2 調 (51 高降)',
+      3: '第 3 調 (31 低降)',
+      4: '第 4 調 (21 低促)',
+      5: '第 5 調 (24 低升)',
+      7: '第 7 調 (33 中平)',
+      8: '第 8 調 (53 高促)'
+    };
+    return map[tone] || '第 1 調 (55 高平)';
+  }
+
+  // --- Universal Pronunciation Challenge Modal ---
+  openChallengeModal(item) {
+    if (!item) return;
+    this.activeChallenge = item;
+
+    const tone = this.extractPrimaryTone(item.tl);
+    const toneName = this.getToneName(tone);
+
+    let modal = document.getElementById('speech-challenge-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'speech-challenge-modal';
+      modal.className = 'modal-overlay';
+      modal.onclick = (e) => {
+        if (e.target === modal) this.closeChallengeModal();
+      };
+      document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+      <div class="modal-card speech-modal-card">
+        <button class="icon-btn modal-close-btn" onclick="window.speechEvaluator.closeChallengeModal()" title="關閉視窗">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <div class="modal-body">
+          <div class="sc-header-box" style="text-align:center; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.75rem;">
+            <div style="font-size:0.85rem; color:var(--text-muted); font-weight:700;">🎤 100% 離線 Web Audio 語音評測</div>
+            <div style="font-size:2rem; font-weight:900; color:var(--primary); margin:0.25rem 0;">${item.hz}</div>
+            <div style="font-size:1.15rem; color:var(--secondary); font-weight:700;">${item.tl || ''}</div>
+            <div style="margin-top:0.4rem;">
+              <span class="badge" style="background:var(--primary-bg); color:var(--primary); font-weight:700;">目標聲調：${toneName}</span>
+            </div>
+            ${item.def ? `<p style="font-size:0.85rem; color:var(--text-muted); margin:0.4rem 0 0;">${item.def}</p>` : ''}
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="window.audioManager.playWord(${item.audio || item.id || 0}, '${item.hz}', this)">
+              🔊 聆聽標準原音
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="window.toneSynth.playTone(${tone})">
+              🎵 聆聽調值滑音
+            </button>
+          </div>
+
+          <div class="pitch-canvas-wrapper">
+            <div class="canvas-legend">
+              <span><span class="legend-gold">---</span> 標準調型曲線</span>
+              <span><span class="legend-green">──</span> 您的發音音高軌跡</span>
+            </div>
+            <canvas id="sc-modal-pitch-canvas" width="340" height="180"></canvas>
+          </div>
+
+          <div class="mic-control-center" style="text-align:center;">
+            <button id="sc-modal-mic-btn" class="mic-record-btn" onclick="window.speechEvaluator.toggleChallengeRecording(${tone})">
+              <span class="mic-icon">🎙️</span>
+              <span id="sc-modal-mic-label">按一下開始錄音</span>
+            </button>
+          </div>
+
+          <div id="sc-modal-result-box" style="display:none;"></div>
+        </div>
+      </div>
+    `;
+
+    modal.classList.add('show');
+
+    // Draw initial standard curve
+    const canvas = document.getElementById('sc-modal-pitch-canvas');
+    if (canvas) {
+      this.renderPitchCanvas(canvas, canvas.getContext('2d'), [], tone);
+    }
+  }
+
+  closeChallengeModal() {
+    this.stopRecording();
+    const modal = document.getElementById('speech-challenge-modal');
+    if (modal) modal.classList.remove('show');
+  }
+
+  toggleChallengeRecording(targetTone) {
+    const btn = document.getElementById('sc-modal-mic-btn');
+    const label = document.getElementById('sc-modal-mic-label');
+    const resultBox = document.getElementById('sc-modal-result-box');
+
+    if (!this.isRecording) {
+      if (btn) btn.classList.add('recording');
+      if (label) label.textContent = '錄音評分中... (再點一下停止)';
+      if (resultBox) resultBox.style.display = 'none';
+
+      this.startRecording('sc-modal-pitch-canvas', targetTone, (evalResult, userAudioUrl) => {
+        if (btn) btn.classList.remove('recording');
+        if (label) label.textContent = '再次錄音比對';
+        this.renderChallengeResult(evalResult, userAudioUrl);
+      });
+    } else {
+      this.stopRecording();
+    }
+  }
+
+  async renderChallengeResult(res, audioUrl) {
+    const resultBox = document.getElementById('sc-modal-result-box');
+    if (!resultBox) return;
+
+    resultBox.style.display = 'block';
+    const stars = res.score >= 80 ? 3 : (res.score >= 60 ? 2 : 1);
+
+    // If passed (score >= 80), update user profile stats
+    if (res.score >= 80) {
+      try {
+        const profile = await window.storage.getUserProfile();
+        profile.totalPronunciations = (profile.totalPronunciations || 0) + 1;
+        await window.storage.saveUserProfile(profile);
+      } catch (e) {
+        console.warn('Profile stat update failed:', e);
+      }
+    }
+
+    resultBox.innerHTML = `
+      <div class="speech-result-box">
+        <div class="sr-score-row">
+          <div class="sr-score">${res.score} <small>分</small></div>
+          <div class="sr-grade">${res.grade}</div>
+          <div class="sr-stars">${'★'.repeat(stars)}</div>
+        </div>
+        <p class="sr-feedback">${res.feedback}</p>
+        <div class="sr-actions" style="flex-wrap:wrap;">
+          <button class="btn btn-outline btn-sm" onclick="window.speechEvaluator.playUserAudio()">
+            🎧 聆聽自己錄音
+          </button>
+          <button id="sc-add-srs-btn" class="btn btn-primary btn-sm" onclick="window.speechEvaluator.addActiveChallengeToSRS(this)">
+            📥 加入 SM-2 複習
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  async addActiveChallengeToSRS(btn) {
+    if (!this.activeChallenge || !window.srsEngine) return;
+    const item = this.activeChallenge;
+    await window.srsEngine.registerVocabList([{
+      id: item.id || item.hz,
+      hz: item.hz,
+      tl: item.tl,
+      def: item.def || '',
+      pos: item.pos || '',
+      audio: item.audio || item.id
+    }]);
+
+    if (btn) {
+      btn.textContent = '✓ 已加入複習庫';
+      btn.classList.remove('btn-primary');
+      btn.classList.add('btn-outline');
+      btn.disabled = true;
+    }
+    window.app?.showToast(`已將「${item.hz}」成功加入 SM-2 間隔重複複習排程！`, 'success');
+  }
 }
 
 window.speechEvaluator = new SpeechEvaluator();

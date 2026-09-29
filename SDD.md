@@ -1,8 +1,8 @@
 # 咱的台語 (Lán ê Tâi-gí) - 軟體系統架構與詳細設計規格書 (Software Design Document, SDD)
 
 **專案名稱**：咱的台語 (Lán ê Tâi-gí) - 100% 離線臺灣台語教學與教育部辭典 PWA  
-**文件版本**：`v1.2.1`  
-**最後修訂日期**：2026 年 09 月 26 日  
+**文件版本**：`v1.3.0`  
+**最後修訂日期**：2026 年 09 月 27 日  
 **文件狀態**：正式發布 (Approved / Production)  
 **系統授權**：MIT License / 創用 CC 姓名標示-禁止改作 3.0 臺灣 (CC BY-ND 3.0 TW)  
 **線上運行展示**：[https://joyyoungai.github.io/lan-taigi/](https://joyyoungai.github.io/lan-taigi/)  
@@ -369,19 +369,42 @@ interface ILevelMapManager {
 
 // SM-2 記憶引擎介面 (srs-engine.js)
 interface ISRSEngine {
+  registerVocabList(vocabList: VocabItem[]): Promise<void>;
   recordReview(wordId: string, quality: 1 | 2 | 3 | 4, meta?: Partial<SRSItem>): Promise<SRSItem>;
   getDueItems(limit?: number): Promise<SRSItem[]>;
   getMetrics(): Promise<{ streak: number; dueCount: number; totalStars: number; masteredCount: number }>;
   showReviewModal(): Promise<void>;
+  challengeCurrentWord(): void;
 }
 
 // 離線語音評分介面 (speech-evaluator.js)
 interface ISpeechEvaluator {
-  startRecording(targetTone: number, onPitchUpdate?: (pitch: number) => void): Promise<boolean>;
-  stopRecording(): Promise<{ score: number; passed: boolean; pitchContour: number[] }>;
-  playReferenceAudio(audioUrl: string): void;
-  playUserRecording(): void;
-  renderContour(canvas: HTMLCanvasElement): void;
+  extractPrimaryTone(tailo: string): number;
+  getToneName(tone: number): string;
+  startRecording(canvasId: string, targetTone: number, onStopCallback?: (result: EvalResult, url: string) => void): Promise<void>;
+  stopRecording(): void;
+  playUserAudio(): void;
+  renderPitchCanvas(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, points: number[], targetTone: number): void;
+  openChallengeModal(item: { id?: string | number; hz: string; tl: string; def?: string; audio?: string | number }): void;
+  closeChallengeModal(): void;
+}
+
+// 辭典管理介面 (dict.js)
+interface IDictionaryManager {
+  init(): Promise<void>;
+  search(keyword: string): void;
+  showWordModal(id: number): Promise<void>;
+  toggleSRSWord(id: number): Promise<void>;
+  challengeWordSpeech(id: number): Promise<void>;
+}
+
+// 測驗競技場介面 (quiz.js)
+interface IQuizManager {
+  init(): Promise<void>;
+  switchMode(mode: string): void;
+  handleAnswer(selected: string, btn: HTMLElement): void;
+  launchSpeechChallenge(): void;
+  nextQuestion(): void;
 }
 
 // 台灣小吃與夜市客製點餐介面 (snack-map.js)
@@ -437,8 +460,8 @@ interface ISnackMapManager {
 - **儀表板保底渲染**：即便本地資料庫無任何歷程，以預設值 `{ streak: 1, dueCount: 0, totalStars: 0, masteredCount: 0 }` 進行立即同步渲染，防止白屏。
 
 ### 7.3 Service Worker 版本指紋與即時換代
-- **版本指紋**：在 `index.html` 之所有 CSS 與 JS 載入標籤附加 `?v=1.2.1`。
-- **快取名稱隔離**：升級靜態快取至 `lan-taigi-static-v4`。在 `activate` 生命週期中自動遍歷快取鍵值，立即刪除除 `lan-taigi-static-v4` 與 `lan-taigi-audio-v1` 以外之所有舊快取版本。
+- **版本指紋**：在 `index.html` 之所有 CSS 與 JS 載入標籤附加 `?v=1.3.0`。
+- **快取名稱隔離**：升級靜態快取至 `lan-taigi-static-v5`。在 `activate` 生命週期中自動遍歷快取鍵值，立即刪除除 `lan-taigi-static-v5` 與 `lan-taigi-audio-v1` 以外之所有舊快取版本。
 - **立即接管**：`install` 事件呼叫 `self.skipWaiting()`，`activate` 事件呼叫 `self.clients.claim()`，確保發布後即時更新。
 
 ### 7.4 臺羅拼音特殊結合符號（Unicode Combining Diacritics）字型相容鏈

@@ -202,10 +202,15 @@ class SRSEngine {
       <div class="srs-card-box">
         <div class="srs-card-hz">${card.hz}</div>
         
-        <button class="btn btn-outline btn-sm srs-audio-btn" onclick="window.audioManager.playWord(${card.audio || card.id}, '${card.hz}', this)">
-          <span class="audio-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></span>
-          播放台語標準音
-        </button>
+        <div style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+          <button class="btn btn-outline btn-sm srs-audio-btn" onclick="window.audioManager.playWord(${card.audio || card.id}, '${card.hz}', this)">
+            <span class="audio-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg></span>
+            播放台語標準音
+          </button>
+          <button class="btn btn-outline btn-sm srs-audio-btn" onclick="window.srsEngine.challengeCurrentWord()">
+            🎤 發音自我挑戰
+          </button>
+        </div>
 
         <div id="srs-answer-section" class="srs-answer-section" style="${this.isAnswerRevealed ? 'display:block;' : 'display:none;'}">
           <div class="srs-card-tl">${card.tl}</div>
@@ -313,6 +318,18 @@ class SRSEngine {
 
     // Refresh dashboard UI
     window.levelMap?.renderDashboard();
+  }
+
+  challengeCurrentWord() {
+    const card = this.currentSession[this.currentIndex];
+    if (!card || !window.speechEvaluator) return;
+    window.speechEvaluator.openChallengeModal({
+      id: card.id,
+      hz: card.hz,
+      tl: card.tl,
+      audio: card.audio || card.id,
+      def: card.def
+    });
   }
 
   closeModal() {

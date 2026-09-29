@@ -412,6 +412,9 @@ class LevelMapManager {
   }
 
   extractPrimaryTone(tl) {
+    if (window.speechEvaluator && typeof window.speechEvaluator.extractPrimaryTone === 'function') {
+      return window.speechEvaluator.extractPrimaryTone(tl);
+    }
     if (!tl) return 1;
     if (tl.includes('á') || tl.includes('é') || tl.includes('í') || tl.includes('ó') || tl.includes('ú')) return 2;
     if (tl.includes('à') || tl.includes('è') || tl.includes('ì') || tl.includes('ò') || tl.includes('ù')) return 3;

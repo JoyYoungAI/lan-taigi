@@ -1,8 +1,8 @@
 # 咱的台語 (Lán ê Tâi-gí)
 ### 100% 離線臺灣台語教學、在地小吃點餐例句庫、闖關地圖、SM-2間隔複習與教育部辭典 PWA 應用程式
 
-[![App Version](https://img.shields.io/badge/App%20Version-v1.2.1-1b5e20.svg)](#-專案版本與更新歷程)
-[![SDD Document](https://img.shields.io/badge/Architecture-SDD%20v1.2.1-blueviolet.svg)](SDD.md)
+[![App Version](https://img.shields.io/badge/App%20Version-v1.3.0-1b5e20.svg)](#-專案版本與更新歷程)
+[![SDD Document](https://img.shields.io/badge/Architecture-SDD%20v1.3.0-blueviolet.svg)](SDD.md)
 [![Dictionary Data](https://img.shields.io/badge/MOE%20Data-2026--09%20Latest-2e7d32.svg)](https://sutian.moe.edu.tw/)
 [![Software License](https://img.shields.io/badge/Software%20License-MIT-blue.svg)](LICENSE)
 [![Dictionary License](https://img.shields.io/badge/Dictionary%20License-CC%20BY--ND%203.0%20TW-orange.svg)](https://creativecommons.org/licenses/by-nd/3.0/tw/)
@@ -229,16 +229,17 @@ npx serve -l 8080
 本專案遵循國際開源與政府開放資料雙軌授權規範，原始碼與語料各自依循其專屬授權條款釋出：
 
 ### 📌 版本資訊 (Version Release Info)
-* **應用程式版本 (App Version)**：`v1.2.1` (Build 2026.09)
-* **最新重大功能與架構發布**：
+* **應用程式版本 (App Version)**：`v1.3.0` (Build 2026.09)
+* **最新重大功能與架構發布 (Phase 5 - 全站學習閉環深度貫通)**：
+  - 🔄 **全功能辭典深度整合 SM-2 與即時口說**：2.9 萬詞條彈窗新增一鍵「📥 加入 SM-2 複習」與「🎤 口說發音挑戰」，查生詞即可轉化為長期記憶排程。
+  - 🎯 **互動測驗錯題自動排入抗遺忘排程**：測驗答錯題目自動登錄「錯題本」與「SM-2 間隔複習佇列」，並提供「🎤 立即口說發音練習」按鈕強化記憶。
+  - ⭐ **生詞本批次匯入與個別挑戰**：收藏庫新增「📥 全部加入 SM-2 複習」一鍵匯入與每張卡片之「🎤 挑戰」按鈕。
+  - 🧠 **SM-2 複習卡片整合即時發音自我挑戰**：每日複習生詞時可直接開啟 F0 音高追蹤與聲調比對。
+  - 🍜 **在地小吃支援一鍵發音評測**：小吃卡片全面整合離線調型比對與夜市點餐對話產生器。
   - 📑 **正式發布系統架構與詳細設計規格書**（收錄於 [`SDD.md`](SDD.md)）
   - 🛡️ **系統韌性防禦機制**（IndexedDB v1->v2 平滑升級防禦、闖關 1-1 節點無條件保底解鎖、白屏容錯）
   - 🔤 **臺羅特殊結合符號字型相容鏈**（完整支援第 8 聲調垂直結合符號 `U+030D` 如 `Ji̍t`，根除豆腐缺字）
-  - ⚡ **Service Worker 快取策略重構**（App Shell Network-First 網路優先、版本指紋 `?v=1.2.1` 結合 `lan-taigi-static-v4`）
-  - 🍜 **台灣特色小吃地圖與夜市客製點餐例句庫**（30 種全台經典美食、三大維度例句、點餐產生器）
-  - 🗺️ **Duolingo 風格闖關地圖**（40 個闖關節點、星級獎章與進度解鎖）
-  - 🧠 **SuperMemo SM-2 間隔重複記憶演算法**（每日儀表板、艾賓浩斯抗遺忘滾動複習）
-  - 🎤 **100% 離線 Web Audio 音高調型評分器**（F0 時域自相關、台語七聲調標準調型比對）
+  - ⚡ **Service Worker 快取策略重構**（App Shell Network-First 網路優先、版本指紋 `?v=1.3.0` 結合 `lan-taigi-static-v5`）
 * **辭典資料版本 (Dictionary Data Version)**：教育部臺灣台語常用詞辭典 `2026-09-24` 最新發布修訂版
 * **語料收錄總計**：29,592 條詞目、23,298 條釋義、17,907 條例句、12,271 筆華台對照、407 筆方言讀音、2,473 筆百家姓、30 款台灣各地特色小吃與實戰點餐對話庫
 
