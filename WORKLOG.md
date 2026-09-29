@@ -1,6 +1,6 @@
 # 咱的台語 (Lán ê Tâi-gí) - 今日工作工作紀錄 (Work Log)
 
-**記錄日期**：2026 年 09 月 26 日  
+**記錄日期**：2026 年 09 月 29 日  
 **專案名稱**：咱的台語 (Lán ê Tâi-gí) - 100% 離線臺灣台語教學與教育部辭典 PWA  
 **專案版本**：`v1.3.0 (Build 2026.09)`  
 **GitHub 專案**：[JoyYoungAI/lan-taigi](https://github.com/JoyYoungAI/lan-taigi)  
